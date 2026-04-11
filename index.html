@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Bazan — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:          #1a1916;
+      --bg-card:     #222220;
+      --bg-subtle:   #2a2927;
+      --border:      rgba(255,255,255,0.07);
+      --border-mid:  rgba(255,255,255,0.12);
+
+      --text-primary:   #e8e4dc;
+      --text-secondary: #a09890;
+      --text-muted:     #6a6460;
+
+      --sage:       #7a9e8a;
+      --sage-dim:   #4d6b5a;
+      --terra:      #c4735a;
+      --terra-dim:  #7a3f2c;
+      --warm-gray:  #9e9890;
+
+      --font-display: 'Lora', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      --max-w: 860px;
+      --section-gap: 96px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: var(--section-gap) 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 25, 22, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 100px;
+      padding-bottom: var(--section-gap);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--sage);
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero-title {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-bio {
+      max-width: 560px;
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .hero-bio-es {
+      max-width: 560px;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      padding-left: 16px;
+      border-left: 2px solid var(--border-mid);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #d4846c;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-mid);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--warm-gray);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 52px;
+      max-width: 480px;
+    }
+
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-3px);
+    }
+
+    .project-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: var(--bg-subtle);
+      display: block;
+    }
+
+    .project-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .project-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 100px;
+      border: 1px solid var(--border-mid);
+      color: var(--text-muted);
+    }
+
+    .tag-sage { border-color: var(--sage-dim); color: var(--sage); }
+    .tag-terra { border-color: var(--terra-dim); color: var(--terra); }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sage);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-link::after { content: '→'; }
+
+    /* ── NEWS / PRESS CARDS ── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .news-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--terra), var(--sage));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .news-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-3px);
+    }
+
+    .news-card:hover::before { opacity: 1; }
+
+    .news-outlet {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra);
+    }
+
+    .news-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.45;
+      flex: 1;
+    }
+
+    .news-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .news-arrow {
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .news-card:hover .news-arrow {
+      color: var(--sage);
+      transform: translateX(3px);
+    }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 36px;
+    }
+
+    .contact-text {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      max-width: 500px;
+    }
+
+    .contact-text strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 100px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--border-mid);
+      color: var(--text-primary);
+      background: var(--bg-card);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── ENTRANCE ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger children */
+    .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .projects-grid, .news-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-name" href="#">Lucas Bazan</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── HERO / ABOUT ── -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-eyebrow">Information Systems Engineer</div>
+
+      <h1 class="hero-name">
+        Hi, I'm <em>Lucas Bazan</em>.
+      </h1>
+
+      <p class="hero-title">I build systems that make things work — and people matter.</p>
+
+      <p class="hero-bio">
+        I'm an Information Systems Engineer with a passion for turning complex problems into clean,
+        impactful solutions. I've worked across product development, data platforms, and applied
+        technology — always with an eye on the human side of systems.
+      </p>
+
+      <!-- Spanish version -->
+      <p class="hero-bio-es">
+        Soy Ingeniero en Sistemas de Información con experiencia en desarrollo de productos,
+        plataformas de datos y tecnología aplicada. Me apasiona construir soluciones que tengan
+        impacto real en las personas.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#projects" class="btn btn-ghost">See my work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">Projects / Proyectos</div>
+      <h2 class="section-heading">Work I'm proud of</h2>
+      <p class="section-sub">A selection of projects I've built, led, or contributed to.</p>
+
+      <div class="projects-grid stagger fade-up">
+
+        <!-- PROJECT 1 — replace src with your screenshot or remove the img tag -->
+        <a href="https://icat-gamma.vercel.app" target="_blank" rel="noopener" class="project-card">
+          <img class="project-img" src="assets/images/icat.jpg" alt="https://icat-gamma.vercel.app" />
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-sage">Web App</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Supabase</span>
+            </div>
+            <div class="project-name">ICAT | Foton.</div>
+            <p class="project-desc">
+              Insight Content Analysis Tool. Web application that analyzes scripts using AI.
+              [Database was taken down by owner - DB functions are mocked]
+            </p>
+            <span class="project-link">View project</span>
+          </div>
+        </a>
+
+        <!-- PROJECT 2 -->
+        <a href="https://proyecto-agro-web.vercel.app" target="_blank" rel="noopener" class="project-card">
+          <img class="project-img" src="assets/images/proyecto-agro-web.jpg" alt="https://proyecto-agro-web.vercel.app" />
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-sage">Web app</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+            </div>
+            <div class="project-name">Proyecto Agro (Web)</div>
+            <p class="project-desc">
+              Web application for agricultural management. Allows users to view the data processed by the mobile application in a more organized and analytical way, including various charts and comparative tables, facilitating decision-making for livestock farmers.
+            </p>
+            <span class="project-link">View project</span>
+          </div>
+        </a>
+
+        <!-- PROJECT 3 -->
+        <a href="https://your-project-link.com" target="_blank" rel="noopener" class="project-card">
+          <img class="project-img" src="assets/images/proyecto-agro-mobile.jpg" alt="https://your-project-link.com" />
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-terra">Mobile app</span>
+              <span class="tag">Kotlin</span>
+            </div>
+            <div class="project-name">Proyecto Agro (Mobile)</div>
+            <p class="project-desc">
+              Mobile application that uses AI to calculate cows Body Condition Score (BCS) from photos taken by farmers. The app provides an intuitive interface for capturing images of cows, processes them using a machine learning model to determine the BCS, and offers insights to help farmers make informed decisions about their livestock's health and nutrition.
+            </p>
+            <span class="project-link">View project</span>
+          </div>
+        </a>
+
+
+        <!-- PROJECT 4 -->
+        <a href="https://your-project-link.com" target="_blank" rel="noopener" class="project-card">
+          <img class="project-img" src="assets/images/centro-distribuciones3.jpg" alt="https://your-project-link.com" />
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag tag-sage">Web App</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Supabase</span>
+            </div>
+            <div class="project-name">Centro Distribuciones</div>
+            <p class="project-desc">
+              E-Commerce web application for a distribution company. The platform allows users to browse products, place orders, and manage their accounts. It features a user-friendly interface, shopping cart management, and an admin dashboard for inventory and order management.
+            </p>
+            <span class="project-link">View project</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRESS / NEWS ── -->
+  <section id="press">
+    <div class="container">
+      <div class="section-label">Press / Prensa</div>
+      <h2 class="section-heading">In the news</h2>
+      <p class="section-sub">Projects and work that caught attention beyond the screen.</p>
+
+      <div class="news-grid stagger fade-up">
+
+        <!-- NEWS CARD 1 -->
+        <a href="https://article-link.com" target="_blank" rel="noopener" class="news-card">
+          <div class="news-outlet">Outlet Name</div>
+          <div class="news-title">Article headline goes here — make it the real title for SEO and credibility</div>
+          <div class="news-meta">
+            <span>Month Year</span>
+            <span class="news-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- NEWS CARD 2 -->
+        <a href="https://article-link.com" target="_blank" rel="noopener" class="news-card">
+          <div class="news-outlet">Outlet Name</div>
+          <div class="news-title">Another article headline goes here about something cool you did</div>
+          <div class="news-meta">
+            <span>Month Year</span>
+            <span class="news-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- NEWS CARD 3 -->
+        <a href="https://article-link.com" target="_blank" rel="noopener" class="news-card">
+          <div class="news-outlet">Outlet Name</div>
+          <div class="news-title">A third headline that shows your work reached people</div>
+          <div class="news-meta">
+            <span>Month Year</span>
+            <span class="news-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- Add more news cards by copying the block above -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact / Contacto</div>
+      <div class="contact-inner">
+        <p class="contact-text">
+          <strong>Let's build something together.</strong><br>
+          I'm open to new projects, collaborations, and conversations.
+        </p>
+
+        <div class="social-links">
+          <a href="mailto:you@email.com" class="social-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            Email
+          </a>
+          <a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener" class="social-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/yourhandle" target="_blank" rel="noopener" class="social-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" class="social-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            Twitter / X
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © 2026 Your Name · Built with care
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          // stagger children
+          el.target.querySelectorAll(':scope > *').forEach((child, i) => {
+            child.style.setProperty('--i', i);
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? 'var(--text-primary)'
+              : '';
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55%' });
+
+    sections.forEach(s => navObserver.observe(s));
+  </script>
+</body>
+</html>
