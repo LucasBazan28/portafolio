@@ -410,6 +410,13 @@
 
     .news-card:hover::before { opacity: 1; }
 
+    .news-body {
+      display: flex; 
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
     .news-outlet {
       font-size: 11px;
       font-weight: 500;
@@ -445,6 +452,10 @@
       color: var(--sage);
       transform: translateX(3px);
     }
+
+    /* Inline audio player */
+    .news-audio { margin-top: 4px; }
+    .news-audio audio { width: 100%; height: 36px; border-radius: 100px; outline: none; accent-color: var(--terra); display: block; }
 
     /* ── CONTACT ── */
     .contact-inner {
@@ -725,8 +736,8 @@
 
         <!-- NEWS CARD 4 -->
         <a href="https://www.youtube.com/watch?v=kgLj9Ozazkk" target="_blank" rel="noopener" class="news-card">
-        <img class="project-img" src="assets/images/apepe.jpg" alt="Apepe Bahia's video screenshot" />
-          <div class="news-outlet">Apepe Bahia</div>
+        <img class="news-img" src="assets/images/apepe.jpg" alt="Apepe Bahia's video screenshot" />
+          <div class="news-outlet">Apepe Bahia · Video</div>
           <div class="news-title">PROYECTO AGRO: CREAN UNA APP CON IA PARA CONTROLAR EL PESO DEL GANADO</div>
           <div class="news-meta">
             <span>April 2026</span>
@@ -739,6 +750,35 @@
           <img class="project-img" src="assets/images/radio-10.jpg" alt="Radio 10 Bahia's social media post" />
           <div class="news-outlet">Radio 10 Bahia</div>
           <div class="news-title">Ian y Lucas, creadores de la aplicación que detecta problemas nutricionales en el ganado, visitaron los estudios de Radio 10, en “De Primera con Meneghini” y explicaron cómo crearon la herramienta que hoy ayuda a muchos productores.</div>
+          <div class="news-meta">
+            <span>April 2026</span>
+            <span class="news-arrow">→</span>
+          </div>
+        </a>
+
+        <!-- NEWS CARD 6 -->
+        <div class="news-card">
+          <img class="news-img" src="assets/images/lu2.jpg" alt="LU2 Radio logo" />
+          <div class="news-body">
+            <div class="news-outlet">LU2 Radio · Audio</div>
+            <div class="news-title">Ian y Lucas explican cómo crearon la app que ayuda a productores ganaderos — De Primera con Meneghini</div>
+            <div class="news-meta"><span>April 2026</span></div>
+            <div class="news-audio">
+
+              <audio controls preload="metadata">
+                <source src="assets/audio/LU2-Noticias-Nestor_de_la_Iglesia.mpeg" type="audio/mpeg" />
+                Tu navegador no soporta audio. / Your browser does not support audio.
+              </audio>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- NEWS CARD 7 -->
+        <a href="https://www.bhinfo.com.ar/noticia/22742-Alumnos_de_la_UNS_crearon_una_novedosa_aplicacion_que_sera_muy_util_en_el_campo-01032026" target="_blank" rel="noopener" class="news-card">
+          <img class="project-img" src="assets/images/BHInfo.jpg" alt="BHInfo article" />
+          <div class="news-outlet">BHInfo</div>
+          <div class="news-title">Alumnos de la UNS crearon una novedosa aplicación que será muy útil en el campo</div>
           <div class="news-meta">
             <span>April 2026</span>
             <span class="news-arrow">→</span>
