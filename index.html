@@ -124,6 +124,37 @@
 
     .nav-links a:hover { color: var(--text-primary); }
 
+    /* ── LANGUAGE SELECTOR ── */
+    .lang-selector {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-mid);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--border-mid);
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .lang-btn:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
     /* ── HERO ── */
     .hero {
       padding-top: 100px;
@@ -313,6 +344,16 @@
       font-size: 28px;
       color: var(--text-muted);
       letter-spacing: 0.05em;
+    }
+
+    .news-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: var(--bg-subtle);
+      display: block;
+      margin-bottom: 12px;
+      border-radius: var(--radius-md);
     }
 
     .project-body {
@@ -538,6 +579,8 @@
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .projects-grid, .news-grid { grid-template-columns: 1fr; }
+      .lang-selector { gap: 6px; }
+      .lang-btn { padding: 5px 10px; font-size: 11px; }
     }
   </style>
 </head>
@@ -547,42 +590,41 @@
   <nav>
     <div class="nav-inner">
       <a class="nav-name" href="#">Lucas Bazan</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#press">Press</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div style="display: flex; gap: 32px; align-items: center;">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#press">Press</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- ── HERO / ABOUT ── -->
   <section class="hero" id="about">
     <div class="container">
-      <div class="hero-eyebrow">Information Systems Engineer</div>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Information Systems Engineer</div>
 
       <h1 class="hero-name">
         Hi, I'm <em>Lucas Bazan</em>.
       </h1>
 
-      <p class="hero-title">I build systems that make things work — and people matter.</p>
+      <p class="hero-title" data-i18n="hero.title">I build systems that make things work — and people matter.</p>
 
-      <p class="hero-bio">
+      <p class="hero-bio" data-i18n="hero.bio">
         I'm an Information Systems Engineer with a passion for turning complex problems into clean,
         impactful solutions. I've worked across product development, data platforms, and applied
         technology — always with an eye on the human side of systems.
       </p>
 
-      <!-- Spanish version -->
-      <p class="hero-bio-es">
-        Soy Ingeniero en Sistemas de Información con experiencia en desarrollo de productos,
-        plataformas de datos y tecnología aplicada. Me apasiona construir soluciones que tengan
-        impacto real en las personas.
-      </p>
-
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="#projects" class="btn btn-ghost">See my work</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Get in touch</a>
+        <a href="#projects" class="btn btn-ghost" data-i18n="hero.cta2">See my work</a>
       </div>
     </div>
   </section>
@@ -590,13 +632,13 @@
   <!-- ── PROJECTS ── -->
   <section id="projects">
     <div class="container">
-      <div class="section-label">Projects / Proyectos</div>
-      <h2 class="section-heading">Work I'm proud of</h2>
-      <p class="section-sub">A selection of projects I've built, led, or contributed to.</p>
+      <div class="section-label" data-i18n="projects.label">Projects / Proyectos</div>
+      <h2 class="section-heading" data-i18n="projects.heading">Work I'm proud of</h2>
+      <p class="section-sub" data-i18n="projects.sub">A selection of projects I've built, led, or contributed to.</p>
 
       <div class="projects-grid stagger fade-up">
 
-        <!-- PROJECT 1 — replace src with your screenshot or remove the img tag -->
+        <!-- PROJECT 1 -->
         <a href="https://icat-gamma.vercel.app" target="_blank" rel="noopener" class="project-card">
           <img class="project-img" src="assets/images/icat.jpg" alt="ICAT | Foton website screenshot" />
           <div class="project-body">
@@ -608,11 +650,11 @@
               <span class="tag">Supabase</span>
             </div>
             <div class="project-name">ICAT | Foton.</div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.p1">
               Insight Content Analysis Tool. Web application that analyzes scripts using AI.
               [Database was taken down by owner - DB functions are mocked]
             </p>
-            <span class="project-link">View project</span>
+            <span class="project-link" data-i18n="projects.link">View project</span>
           </div>
         </a>
 
@@ -627,10 +669,10 @@
               <span class="tag">TypeScript</span>
             </div>
             <div class="project-name">Proyecto Agro (Web)</div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.p2">
               Web application for agricultural management. Allows users to view the data processed by the mobile application in a more organized and analytical way, including various charts and comparative tables, facilitating decision-making for livestock farmers.
             </p>
-            <span class="project-link">View project</span>
+            <span class="project-link" data-i18n="projects.link">View project</span>
           </div>
         </a>
 
@@ -643,13 +685,12 @@
               <span class="tag">Kotlin</span>
             </div>
             <div class="project-name">Proyecto Agro (Mobile)</div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.p3">
               Mobile application that uses AI to calculate cows Body Condition Score (BCS) from photos taken by farmers. The app provides an intuitive interface for capturing images of cows, processes them using a machine learning model to determine the BCS, and offers insights to help farmers make informed decisions about their livestock's health and nutrition.
             </p>
-            <span class="project-link">Go to website</span>
+            <span class="project-link" data-i18n="projects.link">Go to website</span>
           </div>
         </a>
-
 
         <!-- PROJECT 4 -->
         <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="project-card">
@@ -663,10 +704,10 @@
               <span class="tag">Supabase</span>
             </div>
             <div class="project-name">Centro Distribuciones</div>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="projects.p4">
               E-Commerce web application for a distribution company. The platform allows users to browse products, place orders, and manage their accounts. It features a user-friendly interface, shopping cart management, and an admin dashboard for inventory and order management.
             </p>
-            <span class="project-link">Coming soon!</span>
+            <span class="project-link" data-i18n="projects.link">Coming soon!</span>
           </div>
         </a>
 
@@ -681,8 +722,8 @@
               <span class="tag">Qt</span>
             </div>
             <div class="project-name">Systems Intern</div>
-            <p class="project-desc">
-              Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within 
+            <p class="project-desc" data-i18n="projects.p5">
+              Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within
               the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).
             </p>
           </div>
@@ -695,9 +736,9 @@
   <!-- ── PRESS / NEWS ── -->
   <section id="press">
     <div class="container">
-      <div class="section-label">Press / Prensa</div>
-      <h2 class="section-heading">In the news</h2>
-      <p class="section-sub">Projects and work that caught attention beyond the screen.</p>
+      <div class="section-label" data-i18n="press.label">Press / Prensa</div>
+      <h2 class="section-heading" data-i18n="press.heading">In the news</h2>
+      <p class="section-sub" data-i18n="press.sub">Projects and work that caught attention beyond the screen.</p>
 
       <div class="news-grid stagger fade-up">
 
@@ -722,7 +763,7 @@
             <span class="news-arrow">→</span>
           </div>
         </a>
-        
+
         <!-- NEWS CARD 9 -->
         <div class="news-card">
           <img class="news-img" src="assets/images/radio-am-750.jpg" alt="Radio AM 750 con Victor Hugo Morales logo" />
@@ -754,7 +795,7 @@
 
         <!-- NEWS CARD 4 -->
         <a href="https://www.youtube.com/watch?v=kgLj9Ozazkk" target="_blank" rel="noopener" class="news-card">
-        <img class="news-img" src="assets/images/apepe.jpg" alt="Apepe Bahia's video screenshot" />
+          <img class="news-img" src="assets/images/apepe.jpg" alt="Apepe Bahia's video screenshot" />
           <div class="news-outlet">Apepe Bahia · Video</div>
           <div class="news-title">PROYECTO AGRO: CREAN UNA APP CON IA PARA CONTROLAR EL PESO DEL GANADO</div>
           <div class="news-meta">
@@ -794,7 +835,7 @@
 
         <!-- NEWS CARD 7 -->
         <a href="https://www.bhinfo.com.ar/noticia/22742-Alumnos_de_la_UNS_crearon_una_novedosa_aplicacion_que_sera_muy_util_en_el_campo-01032026" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/BHInfo.jpg" alt="BHInfo article" />
+          <img class="project-img" src="assets/images/BHInfo.jpg" alt="BHInfo article"   />
           <div class="news-outlet">BHInfo</div>
           <div class="news-title">Alumnos de la UNS crearon una novedosa aplicación que será muy útil en el campo</div>
           <div class="news-meta">
@@ -805,7 +846,7 @@
 
         <!-- NEWS CARD 8 -->
         <a href="https://youtu.be/qwvKukxRw3A?si=Nx6x1PfrwtrmurEM&t=1182" target="_blank" rel="noopener" class="news-card">
-        <img class="news-img" src="assets/images/canal-9-ld3.jpg" alt="Canal 9 Bahía [Línea de 3]'s video screenshot" />
+          <img class="news-img" src="assets/images/canal-9-ld3.jpg" alt="Canal 9 Bahía [Línea de 3]'s video screenshot" />
           <div class="news-outlet">Canal 9 Bahía [Línea de 3]· Video</div>
           <div class="news-title">Novedosa app creada por estudiantes de la UNS para facilitar el trabajo del productor ganadero.</div>
           <div class="news-meta">
@@ -832,17 +873,20 @@
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="container">
-      <div class="section-label">Contact / Contacto</div>
+      <div class="section-label" data-i18n="contact.label">Contact / Contacto</div>
       <div class="contact-inner">
         <p class="contact-text">
-          <strong>Let's build something together.</strong><br>
-          I'm open to new projects, collaborations, and conversations.
+          <strong data-i18n="contact.cta1">Is your software slowing your business down?</strong><br>
+          <span data-i18n="contact.desc1">I build fast, scalable, and reliable solutions that help companies grow and operate more efficiently.</span>
+        </p>
+        <p class="contact-text">
+          <strong data-i18n="contact.cta2">Let’s work together.</strong>
         </p>
 
         <div class="social-links">
           <a href="mailto:lucasbazan28@gmail.com" class="social-link">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-            Email
+            <span data-i18n="contact.email">Email</span>
           </a>
           <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="social-link">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -854,7 +898,7 @@
           </a>
           <a href="https://twitter.com/ArgWarrior_" target="_blank" rel="noopener" class="social-link">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            Twitter / X
+            <span data-i18n="contact.twitter">Twitter / X</span>
           </a>
         </div>
       </div>
@@ -863,12 +907,140 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">
+    <div class="container" data-i18n="footer.copy">
       © 2026 Lucas Bazan · Built with care
     </div>
   </footer>
 
   <script>
+    // Translations
+    const translations = {
+      en: {
+        nav: { about: 'About', projects: 'Projects', press: 'Press', contact: 'Contact' },
+        hero: {
+          eyebrow: 'Information Systems Engineer',
+          title: 'I build systems that make things work — and people matter.',
+          bio: "I'm an Information Systems Engineer with a passion for turning complex problems into clean, impactful solutions. I've worked across product development, data platforms, and applied technology — always with an eye on the human side of systems.",
+          cta1: 'Get in touch',
+          cta2: 'See my work'
+        },
+        projects: {
+          label: 'Projects',
+          heading: 'Work I\'m proud of',
+          sub: 'A selection of projects I\'ve built, led, or contributed to.',
+          link: 'View project',
+          p1: 'Insight Content Analysis Tool. Web application that analyzes scripts using AI. [Database was taken down by owner - DB functions are mocked]',
+          p2: 'Web application for agricultural management. Allows users to view the data processed by the mobile application in a more organized and analytical way, including various charts and comparative tables, facilitating decision-making for livestock farmers.',
+          p3: 'Mobile application that uses AI to calculate cows Body Condition Score (BCS) from photos taken by farmers. The app provides an intuitive interface for capturing images of cows, processes them using a machine learning model to determine the BCS, and offers insights to help farmers make informed decisions about their livestock\'s health and nutrition.',
+          p4: 'E-Commerce web application for a distribution company with SEO optimization. The platform allows users to browse products, place orders, and manage their accounts. It features a user-friendly interface, shopping cart management, and an admin dashboard for inventory and order management.',
+          p5: 'Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).'
+        },
+        press: {
+          label: 'Press',
+          heading: 'In the news',
+          sub: 'Projects and work that caught attention beyond the screen.'
+        },
+        contact: {
+          label: 'Contact',
+          cta1: 'Is your software slowing your business down?',
+          desc1: 'I build fast, scalable, and reliable solutions that help companies grow and operate more efficiently.',
+          cta2: 'Let\'s work together.',
+          email: 'Email',
+          twitter: 'Twitter / X'
+        },
+        footer: {
+          copy: '© 2026 Lucas Bazan · Built with care'
+        }
+      },
+      es: {
+        nav: { about: 'Acerca de', projects: 'Proyectos', press: 'Prensa', contact: 'Contacto' },
+        hero: {
+          eyebrow: 'Ingeniero en Sistemas de Información',
+          title: 'Construyo sistemas que funcionan - y que ponen a las personas primero.',
+          bio: 'Soy Ingeniero en Sistemas de Información con experiencia en desarrollo de productos, plataformas de datos y tecnología aplicada. Me apasiona construir soluciones que tengan impacto real en las personas.',
+          cta1: 'Ponte en contacto',
+          cta2: 'Ver mi trabajo'
+        },
+        projects: {
+          label: 'Proyectos',
+          heading: 'Trabajos de los que estoy orgulloso',
+          sub: 'Una selección de proyectos que he construido, liderado o contribuido.',
+          link: 'Ver proyecto',
+          p1: 'Herramienta de Análisis de Contenido con Inteligencia Artificial. Aplicación web que analiza guiones. [La base de datos fue desactivada por el propietario - Las funciones de BD están simuladas]',
+          p2: 'Aplicación web para gestión agrícola. Permite a los usuarios ver los datos procesados por la aplicación móvil de forma más organizada y analítica, incluyendo varios gráficos y tablas comparativas, facilitando la toma de decisiones para productores ganaderos.',
+          p3: 'Aplicación móvil que utiliza IA para calcular el Índice de Condición Corporal (BCS) del ganado a partir de fotos tomadas por ganaderos. La aplicación proporciona una interfaz intuitiva para capturar imágenes de ganado, las procesa utilizando un modelo de aprendizaje automático para determinar el BCS, y ofrece información para ayudar a los ganaderos a tomar decisiones informadas sobre la salud y nutrición del ganado.',
+          p4: 'Aplicación web de comercio electrónico para una empresa distribuidora, con SEO optimizado. La plataforma permite a los usuarios navegar por productos, realizar pedidos y gestionar sus cuentas. Cuenta con una interfaz fácil de usar, gestión del carrito de compras y un panel de administración para gestión de inventario y pedidos.',
+          p5: 'Diseño e implementación de decodificadores EUROCONTROL ASTERIX en C++ y Qt para un sistema de consola de radar dentro del Servicio de Análisis Operacional, Armas y Guerra Electrónica (SIAG).'
+        },
+        press: {
+          label: 'Prensa',
+          heading: 'En las noticias',
+          sub: 'Proyectos y trabajos que han recibido atención fuera de la pantalla.'
+        },
+        contact: {
+          label: 'Contacto',
+          cta1: '¿Tu software está frenando tu negocio?',
+          desc1: 'Construyo soluciones rápidas, escalables y confiables que ayudan a las empresas a crecer y operar de manera más eficiente.',
+          cta2: 'Trabajemos juntos.',
+          email: 'Correo',
+          twitter: 'Twitter / X'
+        },
+        footer: {
+          copy: '© 2026 Lucas Bazan · Hecho con cuidado'
+        }
+      }
+    };
+
+    // Initialize language from localStorage or default to 'en'
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Update all translatable content
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const keys = el.dataset.i18n.split('.');
+        let text = translations[lang];
+        for (const key of keys) {
+          text = text[key];
+        }
+
+        // Handle elements with child text nodes
+        if (el.tagName === 'STRONG' || el.tagName === 'SPAN') {
+          el.textContent = text;
+        } else {
+          el.textContent = text;
+        }
+      });
+
+      // Update contact text with mixed content
+      const contactTexts = document.querySelectorAll('.contact-text');
+      if (contactTexts[0]) {
+        contactTexts[0].innerHTML = `<strong>${translations[lang].contact.cta1}</strong><br><span>${translations[lang].contact.desc1}</span>`;
+      }
+    }
+
+    // Add language selector event listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+    });
+
     // Scroll-triggered fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(el => {
