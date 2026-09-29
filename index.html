@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Bazan — Portfolio</title>
+  <title>Lucas Bazan | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── TOKENS ── */
     :root {
-      --bg:          #1a1916;
+      --bg:          linear-gradient(135deg, #07111f 0%, #000000 100%);
       --bg-card:     #222220;
       --bg-subtle:   #2a2927;
       --border:      rgba(255,255,255,0.07);
@@ -26,6 +25,8 @@
       --terra:      #c4735a;
       --terra-dim:  #7a3f2c;
       --warm-gray:  #9e9890;
+      --sand:       #eedabf;
+      --vinoOpaco:  #564243;
 
       --font-display: 'Lora', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
@@ -51,7 +52,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -62,7 +62,6 @@
       opacity: 0.4;
     }
 
-    /* ── LAYOUT ── */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -84,7 +83,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(26, 25, 22, 0.82);
+      background: rgba(2, 8, 24, 0.82);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -165,7 +164,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -193,7 +192,7 @@
 
     .hero-name em {
       font-style: italic;
-      color: var(--terra);
+      color: var(--sand);
     }
 
     .hero-title {
@@ -245,12 +244,12 @@
     }
 
     .btn-primary {
-      background: var(--terra);
+      background: var(--vinoOpaco);
       color: #fff;
     }
 
     .btn-primary:hover {
-      background: #d4846c;
+      background: #673147;
       transform: translateY(-1px);
     }
 
@@ -631,16 +630,20 @@
     <div class="container">
       <div class="hero-eyebrow" data-i18n="hero.eyebrow">Information Systems Engineer</div>
 
+      <h1 class="hero-name" data-i18n="hero.name">
+        Hi, I'm 
+      </h1>
       <h1 class="hero-name">
-        Hi, I'm <em>Lucas Bazan</em>.
+        <em>Lucas Bazan</em>
       </h1>
 
-      <p class="hero-title" data-i18n="hero.title">I build systems that make things work — and people matter.</p>
+      <p class="hero-title" data-i18n="hero.title">I build software for the people who have to use it every day.</p>
 
       <p class="hero-bio" data-i18n="hero.bio">
-        I'm an Information Systems Engineer with a passion for turning complex problems into clean,
-        impactful solutions. I've worked across product development, data platforms, and applied
-        technology — always with an eye on the human side of systems.
+        I'm an Information Systems Engineer. I've worked on product development, data platforms and
+        applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle
+        body condition from a photo. I like the problems where the software has to hold up in the
+        field, not just in a demo.
       </p>
 
       <div class="hero-cta">
@@ -678,7 +681,7 @@
             </div>
             <div class="project-name">Centro Distribuciones</div>
             <p class="project-desc" data-i18n="projects.p4">
-              E-Commerce web application for a distribution company. The platform allows users to browse products, place orders, and manage their accounts. It features a user-friendly interface, shopping cart management, and an admin dashboard for inventory and order management.
+              E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.
             </p>
             <span class="project-link" data-i18n="projects.link">Go to website</span>
           </div>
@@ -696,7 +699,7 @@
             </div>
             <div class="project-name">Proyecto Agro (Web)</div>
             <p class="project-desc" data-i18n="projects.p2">
-              Web application for agricultural management. Allows users to view the data processed by the mobile application in a more organized and analytical way, including various charts and comparative tables, facilitating decision-making for livestock farmers.
+              Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.
             </p>
             <span class="project-link" data-i18n="projects.link">View project</span>
           </div>
@@ -712,7 +715,7 @@
             </div>
             <div class="project-name">Proyecto Agro (Mobile)</div>
             <p class="project-desc" data-i18n="projects.p3">
-              Mobile application that uses AI to calculate cows Body Condition Score (BCS) from photos taken by farmers. The app provides an intuitive interface for capturing images of cows, processes them using a machine learning model to determine the BCS, and offers insights to help farmers make informed decisions about their livestock's health and nutrition.
+              Mobile app that estimates a cow's Body Condition Score (BCS) from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.
             </p>
             <span class="project-link" data-i18n="projects.link">Go to website</span>
           </div>
@@ -731,8 +734,8 @@
             </div>
             <div class="project-name">ICAT | Foton.</div>
             <p class="project-desc" data-i18n="projects.p1">
-              Insight Content Analysis Tool. Web application that analyzes scripts using AI.
-              [Database was taken down by owner - DB functions are mocked]
+              Insight Content Analysis Tool. Web app that analyzes scripts with AI.
+              The owner took the database down, so the demo runs on mocked data.
             </p>
             <span class="project-link" data-i18n="projects.link">View project</span>
           </div>
@@ -765,7 +768,7 @@
     <div class="container">
       <div class="section-label" data-i18n="press.label">Press / Prensa</div>
       <h2 class="section-heading" data-i18n="press.heading">In the news</h2>
-      <p class="section-sub" data-i18n="press.sub">Projects and work that caught attention beyond the screen.</p>
+      <p class="section-sub" data-i18n="press.sub">Coverage of Proyecto Agro in Argentine newspapers, radio and TV.</p>
 
       <div class="news-grid stagger fade-up">
 
@@ -835,7 +838,7 @@
         <a href="https://www.instagram.com/p/DW2KgGsDPz-/" target="_blank" rel="noopener" class="news-card">
           <img class="project-img" src="assets/images/radio-10.jpg" alt="Radio 10 Bahia's social media post" />
           <div class="news-outlet">Radio 10 Bahia</div>
-          <div class="news-title">Ian y Lucas, creadores de la aplicación que detecta problemas nutricionales en el ganado, visitaron los estudios de Radio 10, en “De Primera con Meneghini” y explicaron cómo crearon la herramienta que hoy ayuda a muchos productores.</div>
+          <div class="news-title">Ian y Lucas, creadores de la aplicación que detecta problemas nutricionales en el ganado, visitaron los estudios de Radio 10, en "De Primera con Meneghini" y explicaron cómo crearon la herramienta que hoy ayuda a muchos productores.</div>
           <div class="news-meta">
             <span>April 2026</span>
             <span class="news-arrow">→</span>
@@ -847,7 +850,7 @@
           <img class="news-img" src="assets/images/lu2.jpg" alt="LU2 Radio logo" />
           <div class="news-body">
             <div class="news-outlet">LU2 Radio · Audio</div>
-            <div class="news-title">Ian y Lucas explican cómo crearon la app que ayuda a productores ganaderos — De Primera con Meneghini</div>
+            <div class="news-title">Ian y Lucas explican cómo crearon la app que ayuda a productores ganaderos. De Primera con Meneghini</div>
             <div class="news-meta"><span>April 2026</span></div>
             <div class="news-audio">
 
@@ -925,10 +928,10 @@
       <div class="contact-inner">
         <p class="contact-text">
           <strong data-i18n="contact.cta1">Is your software slowing your business down?</strong><br>
-          <span data-i18n="contact.desc1">I build fast, scalable, and reliable solutions that help companies grow and operate more efficiently.</span>
+          <span data-i18n="contact.desc1">I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.</span>
         </p>
         <p class="contact-text">
-          <strong data-i18n="contact.cta2">Let’s work together.</strong>
+          <strong data-i18n="contact.cta2">Let's work together.</strong>
         </p>
 
         <div class="social-links">
@@ -970,9 +973,10 @@
       en: {
         nav: { about: 'About', projects: 'Projects', press: 'Press', contact: 'Contact' },
         hero: {
+          name: 'Hi, I\'m ',
           eyebrow: 'Information Systems Engineer',
-          title: 'I build systems that make things work — and people matter.',
-          bio: "I'm an Information Systems Engineer with a passion for turning complex problems into clean, impactful solutions. I've worked across product development, data platforms, and applied technology — always with an eye on the human side of systems.",
+          title: 'I build software for the people who have to use it every day.',
+          bio: "I'm an Information Systems Engineer. I've worked on product development, data platforms and applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle body condition from a photo. I like the problems where the software has to hold up in the field, not just in a demo.",
           cta1: 'Get in touch',
           cta2: 'See my work',
           cta3: 'Download CV'
@@ -982,21 +986,21 @@
           heading: 'Work I\'m proud of',
           sub: 'A selection of projects I\'ve built, led, or contributed to.',
           link: 'View project',
-          p1: 'Insight Content Analysis Tool. Web application that analyzes scripts using AI. [Database was taken down by owner - DB functions are mocked]',
-          p2: 'Web application for agricultural management. Allows users to view the data processed by the mobile application in a more organized and analytical way, including various charts and comparative tables, facilitating decision-making for livestock farmers.',
-          p3: 'Mobile application that uses AI to calculate cows Body Condition Score (BCS) from photos taken by farmers. The app provides an intuitive interface for capturing images of cows, processes them using a machine learning model to determine the BCS, and offers insights to help farmers make informed decisions about their livestock\'s health and nutrition.',
-          p4: 'E-Commerce web application for a distribution company with SEO optimization. The platform allows users to browse products, place orders, and manage their accounts. It features a user-friendly interface, shopping cart management, and an admin dashboard for inventory and order management.',
+          p1: 'Insight Content Analysis Tool. Web app that analyzes scripts with AI. The owner took the database down, so the demo runs on mocked data.',
+          p2: 'Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.',
+          p3: 'Mobile app that estimates a cow\'s Body Condition Score (BCS) from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.',
+          p4: 'E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.',
           p5: 'Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).'
         },
         press: {
           label: 'Press',
           heading: 'In the news',
-          sub: 'Projects and work that caught attention beyond the screen.'
+          sub: 'Coverage of Proyecto Agro in Argentine newspapers, radio and TV.'
         },
         contact: {
           label: 'Contact',
           cta1: 'Is your software slowing your business down?',
-          desc1: 'I build fast, scalable, and reliable solutions that help companies grow and operate more efficiently.',
+          desc1: 'I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.',
           cta2: 'Let\'s work together.',
           email: 'Email',
           whatsapp: 'WhatsApp',
@@ -1009,9 +1013,10 @@
       es: {
         nav: { about: 'Acerca de', projects: 'Proyectos', press: 'Prensa', contact: 'Contacto' },
         hero: {
+          name: 'Hola, soy ',
           eyebrow: 'Ingeniero en Sistemas de Información',
-          title: 'Construyo sistemas que funcionan - y que ponen a las personas primero.',
-          bio: 'Soy Ingeniero en Sistemas de Información con experiencia en desarrollo de productos, plataformas de datos y tecnología aplicada. Me apasiona construir soluciones que tengan impacto real en las personas.',
+          title: 'Construyo software pensando en las personas que lo usan todos los días.',
+          bio: 'Soy Ingeniero en Sistemas de Información. Trabajé en desarrollo de productos, plataformas de datos e IA aplicada, desde decodificadores para consolas de radar en la Armada Argentina hasta una app que estima la condición corporal del ganado con una foto. Me interesan los problemas donde el software tiene que funcionar en el campo y no solo en una demo.',
           cta1: 'Ponte en contacto',
           cta2: 'Ver mi trabajo',
           cta3: 'Descargar CV'
@@ -1021,28 +1026,28 @@
           heading: 'Trabajos de los que estoy orgulloso',
           sub: 'Una selección de proyectos que he construido, liderado o contribuido.',
           link: 'Ver proyecto',
-          p1: 'Herramienta de Análisis de Contenido con Inteligencia Artificial. Aplicación web que analiza guiones. [La base de datos fue desactivada por el propietario - Las funciones de BD están simuladas]',
-          p2: 'Aplicación web para gestión agrícola. Permite a los usuarios ver los datos procesados por la aplicación móvil de forma más organizada y analítica, incluyendo varios gráficos y tablas comparativas, facilitando la toma de decisiones para productores ganaderos.',
-          p3: 'Aplicación móvil que utiliza IA para calcular el Índice de Condición Corporal (BCS) del ganado a partir de fotos tomadas por ganaderos. La aplicación proporciona una interfaz intuitiva para capturar imágenes de ganado, las procesa utilizando un modelo de aprendizaje automático para determinar el BCS, y ofrece información para ayudar a los ganaderos a tomar decisiones informadas sobre la salud y nutrición del ganado.',
-          p4: 'Aplicación web de comercio electrónico para una empresa distribuidora, con SEO optimizado. La plataforma permite a los usuarios navegar por productos, realizar pedidos y gestionar sus cuentas. Cuenta con una interfaz fácil de usar, gestión del carrito de compras y un panel de administración para gestión de inventario y pedidos.',
+          p1: 'Herramienta de Análisis de Contenido. Aplicación web que analiza guiones con IA. El propietario dio de baja la base de datos, así que la demo funciona con datos simulados.',
+          p2: 'Aplicación web para gestión agropecuaria. Muestra los datos que recoge la app móvil en gráficos y tablas comparativas, para que el productor vea cómo cambia el rodeo entre mediciones.',
+          p3: 'Aplicación móvil que estima la condición corporal (BCS) de una vaca a partir de una foto. El productor saca la foto, un modelo de machine learning devuelve el puntaje y el historial alimenta la app web.',
+          p4: 'Sitio de comercio electrónico para una distribuidora. Los clientes navegan el catálogo, arman el carrito y hacen pedidos. El dueño gestiona stock y pedidos desde un panel de administración. Optimizado para SEO.',
           p5: 'Diseño e implementación de decodificadores EUROCONTROL ASTERIX en C++ y Qt para un sistema de consola de radar dentro del Servicio de Análisis Operacional, Armas y Guerra Electrónica (SIAG).'
         },
         press: {
           label: 'Prensa',
           heading: 'En las noticias',
-          sub: 'Proyectos y trabajos que han recibido atención fuera de la pantalla.'
+          sub: 'Cobertura de Proyecto Agro en diarios, radio y TV de Argentina.'
         },
         contact: {
           label: 'Contacto',
           cta1: '¿Tu software está frenando tu negocio?',
-          desc1: 'Construyo soluciones rápidas, escalables y confiables que ayudan a las empresas a crecer y operar de manera más eficiente.',
+          desc1: 'Construyo software web y móvil que aguanta el uso real. Cuéntame qué se está rompiendo y te digo si puedo arreglarlo.',
           cta2: 'Trabajemos juntos.',
           email: 'Correo',
           whatsapp: 'WhatsApp',
           twitter: 'Twitter / X'
         },
         footer: {
-          copy: '© 2026 Lucas Bazan · Hecho con cuidado'
+          copy: '© 2026 Lucas Bazan · Hecho con amor'
         }
       }
     };
