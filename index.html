@@ -4,591 +4,509 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Bazan | Portfolio</title>
+  <meta name="description" content="Lucas Bazan, Information Systems Engineer. Product development, data platforms and applied AI. Radar console decoders for the Argentine Navy, cattle body condition scoring from a photograph." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Inter stands in for SF Pro on devices that do not ship it. Apple devices
+       get real SF through -apple-system, which is listed first. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* Tokens. Light is the base; the dark block below overrides values only.
+       Every text pair is checked against WCAG AA: 4.5:1 for text, 3:1 for
+       control boundaries. */
     :root {
-      --bg:          linear-gradient(135deg, #07111f 0%, #000000 100%);
-      --bg-card:     #222220;
-      --bg-subtle:   #2a2927;
-      --border:      rgba(255,255,255,0.07);
-      --border-mid:  rgba(255,255,255,0.12);
+      color-scheme: light dark;
 
-      --text-primary:   #e8e4dc;
-      --text-secondary: #a09890;
-      --text-muted:     #6a6460;
+      --surface:        #f5f6f7;
+      --surface-raised: #ffffff;
+      --surface-chip:   #eceef0;
 
-      --sage:       #7a9e8a;
-      --sage-dim:   #4d6b5a;
-      --terra:      #c4735a;
-      --terra-dim:  #7a3f2c;
-      --warm-gray:  #9e9890;
-      --sand:       #eedabf;
-      --vinoOpaco:  #564243;
+      --content:        #13181e;
+      --content-2:      #49535d;
+      --content-3:      #636d77;
 
-      --font-display: 'Lora', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
+      /* One accent. It marks things you can act on, and nothing else. */
+      --signal:         #8a5a12;
+      --signal-ink:     #ffffff;
+      --signal-hover:   #6f4809;
 
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
+      --hairline:       #dfe3e7;
+      --edge:           #6e7881;
 
-      --max-w: 860px;
+      /* Dark grey in the light appearance. */
+      --shadow-hover: 0 12px 28px rgba(14, 20, 28, 0.16), 0 3px 8px rgba(14, 20, 28, 0.09);
+
+      /* SF Pro where it exists, Inter everywhere else. One family for the whole
+         page, headings included. */
+      --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+              Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      /* rem, so the browser text-size setting applies. Smallest token is 13px,
+         above the 10pt macOS and 11pt iOS minimums. */
+      --t-display: clamp(2.5rem, 6.5vw, 4rem);
+      --t-heading: clamp(1.75rem, 4vw, 2.25rem);
+      --t-lead:    1.1875rem;
+      --t-body:    1.0625rem;
+      --t-body-s:  1rem;
+      --t-label:   0.875rem;
+      --t-micro:   0.8125rem;
+
+      --radius-card: 14px;
+      --radius-ctrl: 12px;
+      --radius-chip: 8px;
+
+      --max-w: 1080px;
+      --gutter: 28px;
       --section-gap: 96px;
+      --nav-h: 56px;
+      --tap: 44px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface:        #0b0f14;
+        --surface-raised: #161c23;
+        --surface-chip:   #1c232b;
+
+        --content:        #e8edf2;
+        --content-2:      #abb4bd;
+        --content-3:      #8b949d;
+
+        --signal:         #e3a94f;
+        --signal-ink:     #0b0f14;
+        --signal-hover:   #f0bc68;
+
+        --hairline:       #1f262e;
+        --edge:           #6b7784;
+
+        /* White in the dark appearance, so a raised card reads as lifted
+           rather than as a hole. */
+        --shadow-hover: 0 12px 30px rgba(232, 237, 242, 0.13), 0 3px 8px rgba(232, 237, 242, 0.07);
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--bg);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.7;
+      background: var(--surface);
+      color: var(--content);
+      font-family: var(--font);
+      font-size: var(--t-body);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
+    h1, h2, h3 { font-weight: 600; line-height: 1.15; letter-spacing: -0.021em; }
+
+    a { color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    :where(a, button, summary, audio, [tabindex]):focus-visible {
+      outline: 2px solid var(--signal);
+      outline-offset: 3px;
     }
 
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 28px;
-      position: relative;
-      z-index: 1;
+      padding-inline: var(--gutter);
     }
 
     section {
-      padding: var(--section-gap) 0;
+      padding-block: var(--section-gap);
+      scroll-margin-top: calc(var(--nav-h) + 16px);
     }
 
-    section + section {
-      border-top: 1px solid var(--border);
+    section + section { border-top: 1px solid var(--hairline); }
+
+    .skip {
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      translate: -50% -200%;
+      z-index: 200;
+      background: var(--surface-raised);
+      color: var(--content);
+      border: 1px solid var(--edge);
+      border-radius: var(--radius-ctrl);
+      padding: 12px 22px;
+      font-size: var(--t-label);
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    /* ── NAV ── */
+    .skip:focus { translate: -50% 0; }
+
+    /* Nav. The only translucent surface on the page. It floats over scrolling
+       content; nothing in the content layer is blurred. */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(2, 8, 24, 0.82);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--surface) 85%, transparent);
+      backdrop-filter: blur(14px) saturate(1.4);
+      -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+      nav { background: var(--surface); }
     }
 
     .nav-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 28px;
-      height: 56px;
+      padding-inline: var(--gutter);
+      min-height: var(--nav-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .nav-name {
-      font-family: var(--font-display);
-      font-size: 15px;
-      color: var(--text-primary);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-secondary);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text-primary); }
-
-    /* ── LANGUAGE SELECTOR ── */
-    .lang-selector {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .lang-btn {
-      background: transparent;
-      border: 1px solid var(--border-mid);
-      color: var(--text-secondary);
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      transition: all 0.2s;
-    }
-
-    .lang-btn.active {
-      background: var(--border-mid);
-      color: var(--text-primary);
-      border-color: var(--text-primary);
-    }
-
-    .lang-btn:hover {
-      border-color: var(--text-primary);
-      color: var(--text-primary);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding-top: 100px;
-      padding-bottom: var(--section-gap);
-    }
-
-    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 28px;
+      min-height: var(--tap);
+      font-size: var(--t-body-s);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
     }
 
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 1px;
-      background: var(--sage);
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+
+    .nav-links { display: flex; gap: 22px; list-style: none; }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--tap);
+      font-size: 0.9375rem;
+      color: var(--content-2);
+      text-decoration: none;
+      transition: color 0.18s;
     }
+
+    .nav-links a:hover { color: var(--content); }
+    .nav-links a.is-current { color: var(--content); font-weight: 600; }
+
+    .lang { display: flex; gap: 6px; }
+
+    .lang-btn {
+      min-width: var(--tap);
+      min-height: var(--tap);
+      padding-inline: 12px;
+      background: transparent;
+      border: 1px solid var(--edge);
+      border-radius: var(--radius-chip);
+      color: var(--content-2);
+      font-family: inherit;
+      font-size: var(--t-micro);
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.18s, background 0.18s, border-color 0.18s;
+    }
+
+    .lang-btn:hover { color: var(--content); border-color: var(--content); }
+
+    /* Selected state carries weight, fill and a check glyph, never colour alone. */
+    .lang-btn[aria-pressed="true"] {
+      background: var(--content);
+      border-color: var(--content);
+      color: var(--surface);
+    }
+
+    .lang-btn[aria-pressed="true"]::after { content: ' \2713'; }
+
+    /* Hero */
+    .hero { padding-top: 76px; }
 
     .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(42px, 7vw, 72px);
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
+      font-size: var(--t-display);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      margin-bottom: 10px;
     }
 
-    .hero-name em {
-      font-style: italic;
-      color: var(--sand);
+    .hero-role {
+      font-size: var(--t-lead);
+      font-weight: 500;
+      color: var(--signal);
+      margin-bottom: 22px;
     }
 
-    .hero-title {
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      letter-spacing: 0.01em;
+    .hero-lead {
+      font-size: var(--t-lead);
+      max-width: 36ch;
+      margin-bottom: 20px;
     }
 
     .hero-bio {
-      max-width: 560px;
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 16px;
+      color: var(--content-2);
+      max-width: 64ch;
+      margin-bottom: 32px;
     }
 
-    .hero-bio-es {
-      max-width: 560px;
-      font-size: 14px;
-      font-style: italic;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 40px;
-      padding-left: 16px;
-      border-left: 2px solid var(--border-mid);
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      border-radius: 100px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--vinoOpaco);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #673147;
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border-mid);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--warm-gray);
-      color: var(--text-primary);
-      transform: translateY(-1px);
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: clamp(26px, 4vw, 36px);
+      justify-content: center;
+      gap: 9px;
+      min-height: var(--tap);
+      padding-inline: 22px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-ctrl);
+      font-family: inherit;
+      font-size: var(--t-label);
       font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.2;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
     }
 
-    .section-sub {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin-bottom: 52px;
-      max-width: 480px;
-    }
+    /* One prominent button on the page. */
+    .btn-primary { background: var(--signal); color: var(--signal-ink); }
+    .btn-primary:hover, .btn-primary:active { background: var(--signal-hover); }
 
-    /* ── PROJECTS GRID ── */
-    .projects-grid {
+    .btn-ghost { color: var(--content-2); border-color: var(--edge); }
+    .btn-ghost:hover { color: var(--content); border-color: var(--content); }
+    .btn-ghost:active { background: var(--surface-chip); }
+
+    .btn svg { flex: none; }
+
+    /* Section headings */
+    .section-head { margin-bottom: 44px; }
+
+    .section-heading { font-size: var(--t-heading); margin-bottom: 12px; }
+
+    .section-sub { color: var(--content-2); max-width: 60ch; }
+
+    /* Cards. Projects and press share one treatment: image edge to edge at the
+       top of a clipped container, text in a padded body below. */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 22px;
     }
 
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface-raised);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-card);
       overflow: hidden;
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.25s, transform 0.25s;
+      transition: border-color 0.2s, box-shadow 0.2s, translate 0.2s;
     }
 
-    .project-card:hover {
-      border-color: var(--border-mid);
-      transform: translateY(-3px);
+    /* Only cards that navigate get hover feedback. */
+    a.card:hover {
+      border-color: var(--edge);
+      box-shadow: var(--shadow-hover);
+      translate: 0 -2px;
     }
 
-    .project-img {
+    .card-img {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
-      background: var(--bg-subtle);
-      display: block;
+      background: var(--surface-chip);
+      border-bottom: 1px solid var(--hairline);
     }
 
-    .project-img-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--bg-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
-
-    .news-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      background: var(--bg-subtle);
-      display: block;
-      margin-bottom: 12px;
-      border-radius: var(--radius-md);
-    }
-
-    .project-body {
+    /* Logos and emblems would be cropped by object-fit: cover. */
+    .card-img.is-logo {
+      object-fit: contain;
       padding: 20px;
+    }
+
+    .card-body {
       flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 11px;
+      padding: 20px;
     }
 
-    .project-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
+    .card-title { font-size: var(--t-lead); line-height: 1.25; }
 
-    .tag {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 100px;
-      border: 1px solid var(--border-mid);
-      color: var(--text-muted);
-    }
+    .card-text { font-size: var(--t-body-s); color: var(--content-2); flex: 1; }
 
-    .tag-sage { border-color: var(--sage-dim); color: var(--sage); }
-    .tag-terra { border-color: var(--terra-dim); color: var(--terra); }
+    .card-note { font-size: var(--t-micro); color: var(--content-3); }
 
-    .project-name {
-      font-family: var(--font-display);
-      font-size: 17px;
+    .card-link {
+      font-size: var(--t-label);
       font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 16px;
-    }
-
-    .project-link {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--sage);
-      letter-spacing: 0.04em;
+      color: var(--signal);
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
-    .project-link::after { content: '→'; }
+    .card-link::after { content: '\2192'; transition: translate 0.18s; }
 
-    /* ── NEWS / PRESS CARDS ── */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-    }
+    a.card:hover .card-link::after { translate: 3px 0; }
 
-    .news-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.25s, transform 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
 
-    .news-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--terra), var(--sage));
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .news-card:hover {
-      border-color: var(--border-mid);
-      transform: translateY(-3px);
-    }
-
-    .news-card:hover::before { opacity: 1; }
-
-    .news-body {
-      display: flex; 
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-    }
-
-    .news-outlet {
-      font-size: 11px;
+    /* Tags are metadata, so they stay neutral. */
+    .tag {
+      padding: 4px 10px;
+      border-radius: var(--radius-chip);
+      background: var(--surface-chip);
+      color: var(--content-2);
+      font-size: var(--t-micro);
       font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--terra);
     }
 
-    .news-title {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.45;
-      flex: 1;
-    }
-
-    .news-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .news-arrow {
-      font-size: 14px;
-      color: var(--text-muted);
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .news-card:hover .news-arrow {
-      color: var(--sage);
-      transform: translateX(3px);
-    }
-
-    /* Inline audio player */
-    .news-audio { margin-top: 4px; }
-    .news-audio audio { width: 100%; height: 36px; border-radius: 100px; outline: none; accent-color: var(--terra); display: block; }
-
-    /* ── CONTACT ── */
-    .contact-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 36px;
-    }
-
-    .contact-text {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3.5vw, 30px);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text-secondary);
-      line-height: 1.4;
-      max-width: 500px;
-    }
-
-    .contact-text strong {
-      font-style: normal;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .social-links {
+    /* Press */
+    .press-head {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px 14px;
     }
+
+    .press-outlet { font-size: var(--t-lead); font-weight: 600; }
+
+    .press-show { font-size: var(--t-micro); color: var(--content-3); }
+
+    .press-title { font-size: var(--t-body-s); color: var(--content-2); flex: 1; }
+
+    a.card:hover .press-title { color: var(--content); }
+
+    .press-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: var(--t-micro);
+      color: var(--content-3);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .press-kind {
+      padding: 3px 9px;
+      border-radius: var(--radius-chip);
+      background: var(--surface-chip);
+      font-weight: 600;
+    }
+
+    .press-audio {
+      width: 100%;
+      height: 38px;
+      border-radius: var(--radius-ctrl);
+    }
+
+    .transcript { border-top: 1px solid var(--hairline); padding-top: 12px; }
+
+    .transcript summary {
+      font-size: var(--t-label);
+      font-weight: 600;
+      color: var(--content-2);
+      cursor: pointer;
+      min-height: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .transcript summary:hover { color: var(--content); }
+
+    .transcript p { font-size: var(--t-micro); color: var(--content-2); margin-top: 10px; }
+
+    /* Contact */
+    .contact-heading { font-size: var(--t-heading); max-width: 28ch; margin-bottom: 16px; }
+
+    .contact-body { color: var(--content-2); max-width: 56ch; margin-bottom: 32px; }
+
+    .social-links { display: flex; flex-wrap: wrap; gap: 12px; }
 
     .social-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 100px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
+      gap: 9px;
+      min-height: var(--tap);
+      padding-inline: 18px;
+      background: var(--surface-raised);
+      border: 1px solid var(--edge);
+      border-radius: var(--radius-ctrl);
+      color: var(--content-2);
+      font-size: var(--t-label);
+      font-weight: 600;
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: all 0.2s;
+      transition: color 0.18s, border-color 0.18s;
     }
 
-    .social-link:hover {
-      border-color: var(--border-mid);
-      color: var(--text-primary);
-      background: var(--bg-card);
-    }
+    .social-link:hover { color: var(--content); border-color: var(--content); }
 
-    /* ── FOOTER ── */
+    .social-link svg { flex: none; }
+
     footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
+      border-top: 1px solid var(--hairline);
+      padding-block: 32px;
+      font-size: var(--t-micro);
+      color: var(--content-3);
       text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      position: relative;
-      z-index: 1;
     }
 
-    /* ── ENTRANCE ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
     }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* Layout keyed to available width, not to device. */
+    @media (max-width: 700px) {
+      :root { --nav-h: 48px; --gutter: 20px; --section-gap: 76px; }
+
+      .nav-inner { flex-wrap: wrap; padding-block: 6px; }
+      .nav-right { order: -1; margin-left: auto; }
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        border-top: 1px solid var(--hairline);
+      }
+      .nav-links a { min-height: 42px; font-size: var(--t-label); }
+
+      section { scroll-margin-top: calc(var(--nav-h) + 52px); }
     }
 
-    /* stagger children */
-    .stagger > * { transition-delay: calc(var(--i, 0) * 80ms); }
+    @media (max-width: 520px) {
+      :root { --section-gap: 60px; }
+      .hero { padding-top: 52px; }
+      .hero-cta .btn { flex: 1 1 100%; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .projects-grid, .news-grid { grid-template-columns: 1fr; }
-      .lang-selector { gap: 6px; }
-      .lang-btn { padding: 5px 10px; font-size: 11px; }
+    @media (min-width: 1240px) {
+      :root { --max-w: 1160px; --gutter: 40px; }
+    }
+
+    @media (prefers-contrast: more) {
+      :root { --hairline: var(--edge); }
+      .card-text, .press-title, .hero-bio, .contact-body, .section-sub { color: var(--content); }
     }
   </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-16HZWXG10R"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-16HZWXG10R');
   </script>
   <!-- Google Tag Manager -->
@@ -606,534 +524,558 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <!-- NAV -->
+  <a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
   <nav>
     <div class="nav-inner">
-      <a class="nav-name" href="#">Lucas Bazan</a>
-      <div style="display: flex; gap: 32px; align-items: center;">
+      <a class="nav-name" href="#top">Lucas Bazan</a>
+      <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#press">Press</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about"    data-i18n="nav.about">About</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#press"    data-i18n="nav.press">Press</a></li>
+          <li><a href="#contact"  data-i18n="nav.contact">Contact</a></li>
         </ul>
-        <div class="lang-selector">
-          <button class="lang-btn active" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="es">ES</button>
+        <div class="lang" role="group" aria-label="Language">
+          <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" type="button" data-lang="es" aria-pressed="false">ES</button>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- ── HERO / ABOUT ── -->
-  <section class="hero" id="about">
-    <div class="container">
-      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Information Systems Engineer</div>
+  <main id="main">
 
-      <h1 class="hero-name" data-i18n="hero.name">
-        Hi, I'm 
-      </h1>
-      <h1 class="hero-name">
-        <em>Lucas Bazan</em>
-      </h1>
+    <section class="hero" id="about">
+      <div class="container">
+        <h1 class="hero-name" data-i18n="hero.greeting">Hi, I'm Lucas Bazan</h1>
+        <p class="hero-role" data-i18n="hero.role">Information Systems Engineer</p>
+        <p class="hero-lead" data-i18n="hero.lead">I build software for the people who have to use it every day.</p>
+        <p class="hero-bio" data-i18n="hero.bio">
+          I'm an Information Systems Engineer. I've worked on product development, data platforms and
+          applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle
+          body condition from a photo. I like the problems where the software has to hold up in the
+          field, not just in a demo.
+        </p>
 
-      <p class="hero-title" data-i18n="hero.title">I build software for the people who have to use it every day.</p>
-
-      <p class="hero-bio" data-i18n="hero.bio">
-        I'm an Information Systems Engineer. I've worked on product development, data platforms and
-        applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle
-        body condition from a photo. I like the problems where the software has to hold up in the
-        field, not just in a demo.
-      </p>
-
-      <div class="hero-cta">
-        <a href="https://wa.me/5491123298026" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.cta1">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span data-i18n="hero.cta1">Get in touch</span>
-        </a>
-        <a href="#projects" class="btn btn-ghost" data-i18n="hero.cta2">See my work</a>
-        <a href="assets/pdf/Lucas_Bazan_resume.pdf" download class="btn btn-ghost" data-i18n="hero.cta3">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-i18n="hero.cta3">Download CV</span>
-        </a>
+        <div class="hero-cta">
+          <a href="https://wa.me/5491123298026" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="hero.cta1">Message me on WhatsApp</span>
+          </a>
+          <a href="#projects" class="btn btn-ghost">
+            <span data-i18n="hero.cta2">See projects</span>
+          </a>
+          <a href="assets/pdf/Lucas_Bazan_resume.pdf" download class="btn btn-ghost">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="hero.cta3">Download CV (PDF)</span>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── PROJECTS ── -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-label" data-i18n="projects.label">Projects / Proyectos</div>
-      <h2 class="section-heading" data-i18n="projects.heading">Work I'm proud of</h2>
-      <p class="section-sub" data-i18n="projects.sub">A selection of projects I've built, led, or contributed to.</p>
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-heading" data-i18n="projects.heading">Work I'm proud of</h2>
+          <p class="section-sub" data-i18n="projects.sub">A selection of projects I've built, led, or contributed to.</p>
+        </div>
 
-      <div class="projects-grid stagger fade-up">
-                <!-- PROJECT 4 -->
-        <a href="https://centrodistribuciones.ar" target="_blank" rel="noopener" class="project-card">
-          <img class="project-img" src="assets/images/centro-distribuciones.jpg" alt="Centro Distribuciones website - Landing page" />
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag tag-sage">Web App</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Supabase</span>
+        <div class="card-grid">
+
+          <a href="https://centrodistribuciones.ar" target="_blank" rel="noopener" class="card">
+            <img class="card-img" src="assets/images/centro-distribuciones.jpg" alt="Centro Distribuciones storefront showing the product catalog" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Centro Distribuciones</h3>
+              <p class="card-text" data-i18n="projects.p4">
+                E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.
+              </p>
+              <div class="tags">
+                <span class="tag">Web app</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Supabase</span>
+              </div>
+              <span class="card-link" data-i18n="projects.linkSite">Visit the site</span>
             </div>
-            <div class="project-name">Centro Distribuciones</div>
-            <p class="project-desc" data-i18n="projects.p4">
-              E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.
-            </p>
-            <span class="project-link" data-i18n="projects.link">Go to website</span>
-          </div>
-        </a>
+          </a>
 
-        <!-- PROJECT 2 -->
-        <a href="https://proyecto-agro-web.vercel.app" target="_blank" rel="noopener" class="project-card">
-          <img class="project-img" src="assets/images/proyecto-agro-web.jpg" alt="Proyecto Agro web application screenshot" />
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag tag-sage">Web app</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span>
+          <a href="https://proyecto-agro-web.vercel.app" target="_blank" rel="noopener" class="card">
+            <img class="card-img" src="assets/images/proyecto-agro-web.jpg" alt="Proyecto Agro web dashboard showing herd measurement charts" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Proyecto Agro, web</h3>
+              <p class="card-text" data-i18n="projects.p2">
+                Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.
+              </p>
+              <div class="tags">
+                <span class="tag">Web app</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Node.js</span>
+              </div>
+              <span class="card-link" data-i18n="projects.linkDemo">Open the demo</span>
             </div>
-            <div class="project-name">Proyecto Agro (Web)</div>
-            <p class="project-desc" data-i18n="projects.p2">
-              Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.
-            </p>
-            <span class="project-link" data-i18n="projects.link">View project</span>
-          </div>
-        </a>
+          </a>
 
-        <!-- PROJECT 3 -->
-        <a href="https://proyecto-agro-web.vercel.app" target="_blank" rel="noopener" class="project-card">
-          <img class="project-img" src="assets/images/proyecto-agro-mobile.jpg" alt="Proyecto Agro mobile app screenshot" />
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag tag-terra">Mobile app</span>
-              <span class="tag">Kotlin</span>
+          <!-- No public build to link to, so this card is not a link. -->
+          <div class="card">
+            <img class="card-img" src="assets/images/proyecto-agro-mobile.jpg" alt="Proyecto Agro mobile app showing a body condition score returned for a photographed cow" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Proyecto Agro, mobile</h3>
+              <p class="card-text" data-i18n="projects.p3">
+                Mobile app that estimates a cow's Body Condition Score from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.
+              </p>
+              <div class="tags">
+                <span class="tag">Mobile app</span>
+                <span class="tag">Kotlin</span>
+                <span class="tag">On-device ML</span>
+              </div>
+              <p class="card-note" data-i18n="projects.m3">No public build yet</p>
             </div>
-            <div class="project-name">Proyecto Agro (Mobile)</div>
-            <p class="project-desc" data-i18n="projects.p3">
-              Mobile app that estimates a cow's Body Condition Score (BCS) from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.
-            </p>
-            <span class="project-link" data-i18n="projects.link">Go to website</span>
           </div>
-        </a>
 
-        <!-- PROJECT 1 -->
-        <a href="https://icat-gamma.vercel.app" target="_blank" rel="noopener" class="project-card">
-          <img class="project-img" src="assets/images/icat.jpg" alt="ICAT | Foton website screenshot" />
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag tag-sage">Web App</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">Supabase</span>
+          <a href="https://icat-gamma.vercel.app" target="_blank" rel="noopener" class="card">
+            <img class="card-img" src="assets/images/icat.jpg" alt="ICAT script analysis tool showing an analyzed screenplay" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">ICAT, Foton</h3>
+              <p class="card-text" data-i18n="projects.p1">
+                Insight Content Analysis Tool. Web app that analyzes scripts with AI. The owner took the database down, so the demo runs on mocked data.
+              </p>
+              <div class="tags">
+                <span class="tag">Web app</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Supabase</span>
+              </div>
+              <span class="card-link" data-i18n="projects.linkDemo">Open the demo</span>
             </div>
-            <div class="project-name">ICAT | Foton.</div>
-            <p class="project-desc" data-i18n="projects.p1">
-              Insight Content Analysis Tool. Web app that analyzes scripts with AI.
-              The owner took the database down, so the demo runs on mocked data.
-            </p>
-            <span class="project-link" data-i18n="projects.link">View project</span>
-          </div>
-        </a>
+          </a>
 
-        <!-- PROJECT 5 -->
-        <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="project-card">
-          <img class="project-img" src="assets/images/armada-argentina.jpg" alt="Armada Argentina's logo" />
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="tag tag-terra">Internship at Argentine Navy</span>
-              <span class="tag tag-sage">Embedded Systems</span>
-              <span class="tag">C++</span>
-              <span class="tag">Qt</span>
+          <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="card">
+            <img class="card-img is-logo" src="assets/images/armada-argentina.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="card-title">Radar console decoders</h3>
+              <p class="card-note" data-i18n="projects.m5">Internship, Argentine Navy</p>
+              <p class="card-text" data-i18n="projects.p5">
+                Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).
+              </p>
+              <div class="tags">
+                <span class="tag">Embedded</span>
+                <span class="tag">C++</span>
+                <span class="tag">Qt</span>
+                <span class="tag">ASTERIX</span>
+              </div>
+              <span class="card-link" data-i18n="projects.linkLinkedIn">View on LinkedIn</span>
             </div>
-            <div class="project-name">Systems Intern</div>
-            <p class="project-desc" data-i18n="projects.p5">
-              Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within
-              the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).
-            </p>
-          </div>
-        </a>
+          </a>
 
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── PRESS / NEWS ── -->
-  <section id="press">
-    <div class="container">
-      <div class="section-label" data-i18n="press.label">Press / Prensa</div>
-      <h2 class="section-heading" data-i18n="press.heading">In the news</h2>
-      <p class="section-sub" data-i18n="press.sub">Coverage of Proyecto Agro in Argentine newspapers, radio and TV.</p>
+    <section id="press">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-heading" data-i18n="press.heading">In the news</h2>
+          <p class="section-sub" data-i18n="press.sub">Twelve placements across eleven Argentine outlets between April and June 2026, all covering Proyecto Agro. The headlines are in Spanish.</p>
+        </div>
 
-      <div class="news-grid stagger fade-up">
+        <div class="card-grid">
 
-        <!-- NEWS CARD 1 -->
-        <a href="https://www.enfoqueu.uns.edu.ar/estudiantes-crearon-una-app-que-usa-ia-para-detectar-problemas-nutricionales-en-el-ganado/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/enfoque-u.jpg" alt="Enfoque U's (News site) article" />
-          <div class="news-outlet">Enfoque U</div>
-          <div class="news-title">Estudiantes crearon una app que usa IA para detectar problemas nutricionales en el ganado</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 2 -->
-        <a href="https://www.labrujula24.com/notas/2026/04/26/proyecto-agro-como-es-la-aplicacion-que-ayuda-a-la-toma-de-decisiones-n497232/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/la-brujula-24-2.jpg" alt="La Brujula 24's (News site) article" />
-          <div class="news-outlet">La Brujula 24</div>
-          <div class="news-title">Proyecto Agro: cómo es la aplicación que ayuda a la toma de decisiones</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 9 -->
-        <div class="news-card">
-          <img class="news-img" src="assets/images/radio-am-750.jpg" alt="Radio AM 750 con Victor Hugo Morales logo" />
-          <div class="news-body">
-            <div class="news-outlet">Radio AM 750 [Victor Hugo Morales] · Audio</div>
-            <div class="news-title">La ingeniería y la ganadería: Lucas Bazan nos cuenta sobre Proyecto Agro</div>
-            <div class="news-meta"><span>April 2026</span></div>
-            <div class="news-audio">
-
-              <audio controls preload="metadata">
+          <!-- The two radio interviews play in place, so these cards are not links. -->
+          <article class="card">
+            <img class="card-img is-logo" src="assets/images/radio-am-750.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <div class="press-head">
+                <h3 class="press-outlet">Radio AM 750</h3>
+                <p class="press-show">Víctor Hugo Morales</p>
+              </div>
+              <p class="press-title" lang="es">La ingeniería y la ganadería: Lucas Bazan nos cuenta sobre Proyecto Agro</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.radio">Radio</span>
+                <span data-i18n="months.apr2026">April 2026</span>
+              </p>
+              <audio class="press-audio" controls preload="metadata"
+                     aria-label="Radio AM 750, Victor Hugo Morales interview about Proyecto Agro, April 2026">
                 <source src="assets/audio/Radio-am-750-Victor-Hugo-Morales.mpeg" type="audio/mpeg" />
-                Tu navegador no soporta audio. / Your browser does not support audio.
+                <a href="assets/audio/Radio-am-750-Victor-Hugo-Morales.mpeg">Download the audio</a>
               </audio>
-
+              <details class="transcript">
+                <summary data-i18n="press.aboutSegment">About this interview</summary>
+                <p data-i18n="press.about750">Interview on Víctor Hugo Morales's AM 750 programme about Proyecto Agro, covering how the app estimates cattle body condition from a photograph and how the team built it. There is no published transcript yet. Ask me and I will send one.</p>
+              </details>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <!-- NEWS CARD 3 -->
-        <a href="https://www.pagina12.com.ar/2026/04/08/ingenieros-bonaerenses-al-rescate-del-sector-ganadero/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/pagina-12.jpg" alt="Pagina 12's (News site) article" />
-          <div class="news-outlet">Pagina 12</div>
-          <div class="news-title">Ingenieros bonaerenses al rescate del sector ganadero</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 4 -->
-        <a href="https://www.youtube.com/watch?v=kgLj9Ozazkk" target="_blank" rel="noopener" class="news-card">
-          <img class="news-img" src="assets/images/apepe.jpg" alt="Apepe Bahia's video screenshot" />
-          <div class="news-outlet">Apepe Bahia · Video</div>
-          <div class="news-title">PROYECTO AGRO: CREAN UNA APP CON IA PARA CONTROLAR EL PESO DEL GANADO</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 5 -->
-        <a href="https://www.instagram.com/p/DW2KgGsDPz-/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/radio-10.jpg" alt="Radio 10 Bahia's social media post" />
-          <div class="news-outlet">Radio 10 Bahia</div>
-          <div class="news-title">Ian y Lucas, creadores de la aplicación que detecta problemas nutricionales en el ganado, visitaron los estudios de Radio 10, en "De Primera con Meneghini" y explicaron cómo crearon la herramienta que hoy ayuda a muchos productores.</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 6 -->
-        <div class="news-card">
-          <img class="news-img" src="assets/images/lu2.jpg" alt="LU2 Radio logo" />
-          <div class="news-body">
-            <div class="news-outlet">LU2 Radio · Audio</div>
-            <div class="news-title">Ian y Lucas explican cómo crearon la app que ayuda a productores ganaderos. LU2 Noticias - Nestor de la Iglesia</div>
-            <div class="news-meta"><span>April 2026</span></div>
-            <div class="news-audio">
-
-              <audio controls preload="metadata">
+          <article class="card">
+            <img class="card-img is-logo" src="assets/images/lu2.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <div class="press-head">
+                <h3 class="press-outlet">LU2 Radio</h3>
+                <p class="press-show">Néstor de la Iglesia</p>
+              </div>
+              <p class="press-title" lang="es">Ian y Lucas explican cómo crearon la app que ayuda a productores ganaderos</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.radio">Radio</span>
+                <span data-i18n="months.apr2026">April 2026</span>
+              </p>
+              <audio class="press-audio" controls preload="metadata"
+                     aria-label="LU2 Radio, LU2 Noticias with Nestor de la Iglesia, interview about Proyecto Agro, April 2026">
                 <source src="assets/audio/LU2-Noticias-Nestor_de_la_Iglesia.mpeg" type="audio/mpeg" />
-                Tu navegador no soporta audio. / Your browser does not support audio.
+                <a href="assets/audio/LU2-Noticias-Nestor_de_la_Iglesia.mpeg">Download the audio</a>
               </audio>
-
+              <details class="transcript">
+                <summary data-i18n="press.aboutSegment">About this interview</summary>
+                <p data-i18n="press.aboutLu2">Interview on LU2 Noticias with Néstor de la Iglesia. Ian and Lucas explain how they built the app and what it does for cattle farmers. There is no published transcript yet. Ask me and I will send one.</p>
+              </details>
             </div>
-          </div>
+          </article>
+
+          <a class="card" href="https://www.pagina12.com.ar/2026/04/08/ingenieros-bonaerenses-al-rescate-del-sector-ganadero/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/pagina-12.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">Página 12</h3>
+              <p class="press-title" lang="es">Ingenieros bonaerenses al rescate del sector ganadero</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://youtu.be/qwvKukxRw3A?si=Nx6x1PfrwtrmurEM&amp;t=1182" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/canal-9-ld3.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <div class="press-head">
+                <h3 class="press-outlet">Canal 9 Bahía</h3>
+                <p class="press-show">Línea de 3</p>
+              </div>
+              <p class="press-title" lang="es">Novedosa app creada por estudiantes de la UNS para facilitar el trabajo del productor ganadero</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.tv">TV</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.infocampo.com.ar/solo-una-foto-y-la-ia-tres-jovenes-disenaron-una-app-que-facilita-el-manejo-de-un-aspecto-clave-en-los-bovinos/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/infocampo.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">InfoCampo</h3>
+              <p class="press-title" lang="es">Solo una foto y la IA: tres jóvenes diseñaron una app que facilita el manejo de un aspecto clave en los bovinos</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-05" data-i18n="months.may2026">May 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.youtube.com/live/K2_4UnrfdAM?si=R4-NJHOvGQwXCfH2&amp;t=2122" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/campo-total.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">Campo Total</h3>
+              <p class="press-title" lang="es">Proyecto Agro: una nueva app para medir condición corporal</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.video">Video</span>
+                <time datetime="2026-06" data-i18n="months.jun2026">June 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.labrujula24.com/notas/2026/04/26/proyecto-agro-como-es-la-aplicacion-que-ayuda-a-la-toma-de-decisiones-n497232/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/la-brujula-24-2.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">La Brújula 24</h3>
+              <p class="press-title" lang="es">Proyecto Agro: cómo es la aplicación que ayuda a la toma de decisiones</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.labrujula24.com/notas/2026/04/06/estudiantes-bahienses-crearon-una-app-con-ia-que-detecta-problemas-nutricionales-en-el-ganado-n493719/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/la-brujula-24.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">La Brújula 24</h3>
+              <p class="press-title" lang="es">Estudiantes bahienses crearon una app con IA que detecta problemas nutricionales en el ganado</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.youtube.com/watch?v=kgLj9Ozazkk" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/apepe.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">Apepe Bahía</h3>
+              <p class="press-title" lang="es">Proyecto Agro: crean una app con IA para controlar el peso del ganado</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.video">Video</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.enfoqueu.uns.edu.ar/estudiantes-crearon-una-app-que-usa-ia-para-detectar-problemas-nutricionales-en-el-ganado/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/enfoque-u.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">Enfoque U, UNS</h3>
+              <p class="press-title" lang="es">Estudiantes crearon una app que usa IA para detectar problemas nutricionales en el ganado</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.bhinfo.com.ar/noticia/22742-Alumnos_de_la_UNS_crearon_una_novedosa_aplicacion_que_sera_muy_util_en_el_campo-01032026" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/BHInfo.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <h3 class="press-outlet">BHInfo</h3>
+              <p class="press-title" lang="es">Alumnos de la UNS crearon una novedosa aplicación que será muy útil en el campo</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.article">Article</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="https://www.instagram.com/p/DW2KgGsDPz-/" target="_blank" rel="noopener">
+            <img class="card-img" src="assets/images/radio-10.jpg" alt="" loading="lazy" decoding="async" />
+            <div class="card-body">
+              <div class="press-head">
+                <h3 class="press-outlet">Radio 10 Bahía</h3>
+                <p class="press-show">De Primera con Meneghini</p>
+              </div>
+              <p class="press-title" lang="es">Los creadores de la app visitaron los estudios de Radio 10</p>
+              <p class="press-meta">
+                <span class="press-kind" data-i18n="press.kind.radio">Radio</span>
+                <time datetime="2026-04" data-i18n="months.apr2026">April 2026</time>
+              </p>
+            </div>
+          </a>
+
         </div>
-
-        <!-- NEWS CARD 7 -->
-        <a href="https://www.bhinfo.com.ar/noticia/22742-Alumnos_de_la_UNS_crearon_una_novedosa_aplicacion_que_sera_muy_util_en_el_campo-01032026" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/BHInfo.jpg" alt="BHInfo article"   />
-          <div class="news-outlet">BHInfo</div>
-          <div class="news-title">Alumnos de la UNS crearon una novedosa aplicación que será muy útil en el campo</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 11 -->
-        <a href="https://www.infocampo.com.ar/solo-una-foto-y-la-ia-tres-jovenes-disenaron-una-app-que-facilita-el-manejo-de-un-aspecto-clave-en-los-bovinos/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/infocampo.jpg" alt="InfoCampo article" />
-          <div class="news-outlet">InfoCampo</div>
-          <div class="news-title">Solo una foto y la IA: tres jóvenes diseñaron una app que facilita el manejo de un aspecto clave en los bovinos</div>
-          <div class="news-meta">
-            <span>May 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 8 -->
-        <a href="https://youtu.be/qwvKukxRw3A?si=Nx6x1PfrwtrmurEM&t=1182" target="_blank" rel="noopener" class="news-card">
-          <img class="news-img" src="assets/images/canal-9-ld3.jpg" alt="Canal 9 Bahía [Línea de 3]'s video screenshot" />
-          <div class="news-outlet">Canal 9 Bahía [Línea de 3]· Video</div>
-          <div class="news-title">Novedosa app creada por estudiantes de la UNS para facilitar el trabajo del productor ganadero.</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 10 -->
-        <a href="https://www.labrujula24.com/notas/2026/04/06/estudiantes-bahienses-crearon-una-app-con-ia-que-detecta-problemas-nutricionales-en-el-ganado-n493719/" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/la-brujula-24.jpg" alt="La Brujula 24's (News site) article" />
-          <div class="news-outlet">La Brujula 24</div>
-          <div class="news-title">Estudiantes bahienses crearon una app con IA que detecta problemas nutricionales en el ganado</div>
-          <div class="news-meta">
-            <span>April 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
-
-        <!-- NEWS CARD 12 https://www.youtube.com/live/K2_4UnrfdAM?si=R4-NJHOvGQwXCfH2&t=2122 -->
-        <a href="https://www.youtube.com/live/K2_4UnrfdAM?si=R4-NJHOvGQwXCfH2&t=2122" target="_blank" rel="noopener" class="news-card">
-          <img class="project-img" src="assets/images/campo-total.jpg" alt="Campo Total Radio YouTube video" />
-          <div class="news-outlet">Campo Total</div>
-          <div class="news-title">Proyecto Agro: Una nueva app para medir condición corporal</div>
-          <div class="news-meta">
-            <span>June 2026</span>
-            <span class="news-arrow">→</span>
-          </div>
-        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── CONTACT ── -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-label" data-i18n="contact.label">Contact / Contacto</div>
-      <div class="contact-inner">
-        <p class="contact-text">
-          <strong data-i18n="contact.cta1">Is your software slowing your business down?</strong><br>
-          <span data-i18n="contact.desc1">I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.</span>
-        </p>
-        <p class="contact-text">
-          <strong data-i18n="contact.cta2">Let's work together.</strong>
-        </p>
+    <section id="contact">
+      <div class="container">
+        <h2 class="contact-heading" data-i18n="contact.heading">Is your software slowing your business down?</h2>
+        <p class="contact-body" data-i18n="contact.body">I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.</p>
 
         <div class="social-links">
           <a href="https://wa.me/5491123298026" target="_blank" rel="noopener" class="social-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span data-i18n="contact.whatsapp">WhatsApp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>WhatsApp</span>
           </a>
           <a href="mailto:lucasbazan28@gmail.com" class="social-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             <span data-i18n="contact.email">Email</span>
           </a>
           <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="social-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>LinkedIn</span>
           </a>
           <a href="https://github.com/LucasBazan28" target="_blank" rel="noopener" class="social-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <span>GitHub</span>
           </a>
           <a href="https://x.com/ArgWarrior_" target="_blank" rel="noopener" class="social-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            <span data-i18n="contact.twitter">Twitter / X</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            <span>X</span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer>
-    <div class="container" data-i18n="footer.copy">
-      © 2026 Lucas Bazan · Built with care
-    </div>
+    <div class="container">&copy; 2026 Lucas Bazan</div>
   </footer>
 
   <script>
-    // Translations
-    const translations = {
+  (function () {
+    'use strict';
+
+    // Every string the interface owns. Press headlines are quotations and stay
+    // in Spanish in both modes, marked with lang="es" in the markup.
+    var translations = {
       en: {
+        a11y: { skip: 'Skip to content' },
         nav: { about: 'About', projects: 'Projects', press: 'Press', contact: 'Contact' },
+        months: { apr2026: 'April 2026', may2026: 'May 2026', jun2026: 'June 2026' },
         hero: {
-          name: 'Hi, I\'m ',
-          eyebrow: 'Information Systems Engineer',
-          title: 'I build software for the people who have to use it every day.',
+          greeting: "Hi, I'm Lucas Bazan",
+          role: 'Information Systems Engineer',
+          lead: 'I build software for the people who have to use it every day.',
           bio: "I'm an Information Systems Engineer. I've worked on product development, data platforms and applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle body condition from a photo. I like the problems where the software has to hold up in the field, not just in a demo.",
-          cta1: 'Get in touch',
-          cta2: 'See my work',
-          cta3: 'Download CV'
+          cta1: 'Message me on WhatsApp',
+          cta2: 'See projects',
+          cta3: 'Download CV (PDF)'
         },
         projects: {
-          label: 'Projects',
-          heading: 'Work I\'m proud of',
-          sub: 'A selection of projects I\'ve built, led, or contributed to.',
-          link: 'View project',
+          heading: "Work I'm proud of",
+          sub: "A selection of projects I've built, led, or contributed to.",
+          linkSite: 'Visit the site',
+          linkDemo: 'Open the demo',
+          linkLinkedIn: 'View on LinkedIn',
           p1: 'Insight Content Analysis Tool. Web app that analyzes scripts with AI. The owner took the database down, so the demo runs on mocked data.',
           p2: 'Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.',
-          p3: 'Mobile app that estimates a cow\'s Body Condition Score (BCS) from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.',
+          p3: "Mobile app that estimates a cow's Body Condition Score from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.",
           p4: 'E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.',
-          p5: 'Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).'
+          p5: 'Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).',
+          m3: 'No public build yet',
+          m5: 'Internship, Argentine Navy'
         },
         press: {
-          label: 'Press',
           heading: 'In the news',
-          sub: 'Coverage of Proyecto Agro in Argentine newspapers, radio and TV.'
+          sub: 'Twelve placements across eleven Argentine outlets between April and June 2026, all covering Proyecto Agro. The headlines are in Spanish.',
+          aboutSegment: 'About this interview',
+          about750: "Interview on Víctor Hugo Morales's AM 750 programme about Proyecto Agro, covering how the app estimates cattle body condition from a photograph and how the team built it. There is no published transcript yet. Ask me and I will send one.",
+          aboutLu2: 'Interview on LU2 Noticias with Néstor de la Iglesia. Ian and Lucas explain how they built the app and what it does for cattle farmers. There is no published transcript yet. Ask me and I will send one.',
+          kind: { article: 'Article', radio: 'Radio', video: 'Video', tv: 'TV' }
         },
         contact: {
-          label: 'Contact',
-          cta1: 'Is your software slowing your business down?',
-          desc1: 'I build web and mobile software that holds up under real use. Tell me what is breaking and I will fix it.',
-          cta2: 'Let\'s work together.',
-          email: 'Email',
-          whatsapp: 'WhatsApp',
-          twitter: 'Twitter / X'
-        },
-        footer: {
-          copy: '© 2026 Lucas Bazan · Built with care'
+          heading: 'Is your software slowing your business down?',
+          body: 'I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.',
+          email: 'Email'
         }
       },
       es: {
-        nav: { about: 'Acerca de', projects: 'Proyectos', press: 'Prensa', contact: 'Contacto' },
+        a11y: { skip: 'Saltar al contenido' },
+        nav: { about: 'Perfil', projects: 'Proyectos', press: 'Prensa', contact: 'Contacto' },
+        months: { apr2026: 'Abril 2026', may2026: 'Mayo 2026', jun2026: 'Junio 2026' },
         hero: {
-          name: 'Hola, soy ',
-          eyebrow: 'Ingeniero en Sistemas de Información',
-          title: 'Construyo software pensando en las personas que lo usan todos los días.',
+          greeting: 'Hola, soy Lucas Bazan',
+          role: 'Ingeniero en Sistemas de Información',
+          lead: 'Construyo software pensando en las personas que lo usan todos los días.',
           bio: 'Soy Ingeniero en Sistemas de Información. Trabajé en desarrollo de productos, plataformas de datos e IA aplicada, desde decodificadores para consolas de radar en la Armada Argentina hasta una app que estima la condición corporal del ganado con una foto. Me interesan los problemas donde el software tiene que funcionar en el campo y no solo en una demo.',
-          cta1: 'Ponte en contacto',
-          cta2: 'Ver mi trabajo',
-          cta3: 'Descargar CV'
+          cta1: 'Escribime por WhatsApp',
+          cta2: 'Ver proyectos',
+          cta3: 'Descargar CV (PDF)'
         },
         projects: {
-          label: 'Proyectos',
           heading: 'Trabajos de los que estoy orgulloso',
-          sub: 'Una selección de proyectos que he construido, liderado o contribuido.',
-          link: 'Ver proyecto',
-          p1: 'Herramienta de Análisis de Contenido. Aplicación web que analiza guiones con IA. El propietario dio de baja la base de datos, así que la demo funciona con datos simulados.',
+          sub: 'Una selección de proyectos que construí, lideré o en los que colaboré.',
+          linkSite: 'Ir al sitio',
+          linkDemo: 'Abrir la demo',
+          linkLinkedIn: 'Ver en LinkedIn',
+          p1: 'Herramienta de análisis de contenido. Aplicación web que analiza guiones con IA. El propietario dio de baja la base de datos, así que la demo funciona con datos simulados.',
           p2: 'Aplicación web para gestión agropecuaria. Muestra los datos que recoge la app móvil en gráficos y tablas comparativas, para que el productor vea cómo cambia el rodeo entre mediciones.',
-          p3: 'Aplicación móvil que estima la condición corporal (BCS) de una vaca a partir de una foto. El productor saca la foto, un modelo de machine learning devuelve el puntaje y el historial alimenta la app web.',
+          p3: 'Aplicación móvil que estima la condición corporal de una vaca a partir de una foto. El productor saca la foto, un modelo de machine learning devuelve el puntaje y el historial alimenta la app web.',
           p4: 'Sitio de comercio electrónico para una distribuidora. Los clientes navegan el catálogo, arman el carrito y hacen pedidos. El dueño gestiona stock y pedidos desde un panel de administración. Optimizado para SEO.',
-          p5: 'Diseño e implementación de decodificadores EUROCONTROL ASTERIX en C++ y Qt para un sistema de consola de radar dentro del Servicio de Análisis Operacional, Armas y Guerra Electrónica (SIAG).'
+          p5: 'Diseño e implementación de decodificadores EUROCONTROL ASTERIX en C++ y Qt para un sistema de consola de radar dentro del Servicio de Análisis Operacional, Armas y Guerra Electrónica (SIAG).',
+          m3: 'Todavía sin build pública',
+          m5: 'Pasantía, Armada Argentina'
         },
         press: {
-          label: 'Prensa',
           heading: 'En las noticias',
-          sub: 'Cobertura de Proyecto Agro en diarios, radio y TV de Argentina.'
+          sub: 'Doce apariciones en once medios argentinos entre abril y junio de 2026, todas sobre Proyecto Agro.',
+          aboutSegment: 'Sobre esta entrevista',
+          about750: 'Entrevista en el programa de Víctor Hugo Morales en AM 750 sobre Proyecto Agro, sobre cómo la app estima la condición corporal del ganado a partir de una foto y cómo la construyó el equipo. Todavía no hay transcripción publicada. Pedímela y te la mando.',
+          aboutLu2: 'Entrevista en LU2 Noticias con Néstor de la Iglesia. Ian y Lucas cuentan cómo construyeron la app y qué resuelve para los productores ganaderos. Todavía no hay transcripción publicada. Pedímela y te la mando.',
+          kind: { article: 'Nota', radio: 'Radio', video: 'Video', tv: 'TV' }
         },
         contact: {
-          label: 'Contacto',
-          cta1: '¿Tu software está frenando tu negocio?',
-          desc1: 'Construyo software web y móvil que aguanta el uso real. Contame qué se está rompiendo y lo arreglo.',
-          cta2: 'Trabajemos juntos.',
-          email: 'Correo',
-          whatsapp: 'WhatsApp',
-          twitter: 'Twitter / X'
-        },
-        footer: {
-          copy: '© 2026 Lucas Bazan · Hecho con amor'
+          heading: '¿Tu software está frenando tu negocio?',
+          body: 'Construyo software web y móvil que aguanta el uso real. Contame qué se está rompiendo y te digo si puedo arreglarlo.',
+          email: 'Correo'
         }
       }
     };
 
-    // Initialize language from localStorage or default to 'en'
-    let currentLang = localStorage.getItem('lang') || 'en';
+    var LANGS = ['en', 'es'];
 
+    function store(key, value) {
+      try { localStorage.setItem(key, value); } catch (e) { /* private mode */ }
+    }
+
+    function read(key) {
+      try { return localStorage.getItem(key); } catch (e) { return null; }
+    }
+
+    function lookup(dict, path) {
+      var parts = path.split('.');
+      var node = dict;
+      for (var i = 0; i < parts.length; i++) {
+        if (node == null) return null;
+        node = node[parts[i]];
+      }
+      return typeof node === 'string' ? node : null;
+    }
+
+    // Writes textContent only on elements whose whole content is the string, so
+    // inline icons are never destroyed. Also sets the document language, which
+    // is what gives a screen reader the right pronunciation.
     function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('lang', lang);
+      if (LANGS.indexOf(lang) === -1) lang = 'en';
+      var dict = translations[lang];
 
-      // Update active button
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === lang) {
-          btn.classList.add('active');
-        }
+      document.documentElement.lang = lang;
+
+      var nodes = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < nodes.length; i++) {
+        var value = lookup(dict, nodes[i].getAttribute('data-i18n'));
+        if (value !== null) nodes[i].textContent = value;
+      }
+
+      var buttons = document.querySelectorAll('.lang-btn');
+      for (var j = 0; j < buttons.length; j++) {
+        var on = buttons[j].getAttribute('data-lang') === lang;
+        buttons[j].setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+
+      store('lang', lang);
+    }
+
+    function initialLanguage() {
+      var saved = read('lang');
+      if (saved && LANGS.indexOf(saved) !== -1) return saved;
+      return (navigator.language || 'en').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+    }
+
+    var langButtons = document.querySelectorAll('.lang-btn');
+    for (var b = 0; b < langButtons.length; b++) {
+      langButtons[b].addEventListener('click', function () {
+        setLanguage(this.getAttribute('data-lang'));
       });
+    }
 
-      // Update all translatable content
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const keys = el.dataset.i18n.split('.');
-        let text = translations[lang];
-        for (const key of keys) {
-          text = text[key];
-        }
+    setLanguage(initialLanguage());
 
-        // Handle elements with child text nodes
-        if (el.tagName === 'STRONG' || el.tagName === 'SPAN') {
-          el.textContent = text;
-        } else {
-          el.textContent = text;
-        }
-      });
+    // Marks the nav link for the section being read, using a class and
+    // aria-current rather than inline colour.
+    var navLinks = document.querySelectorAll('.nav-links a');
+    var sections = document.querySelectorAll('main section[id]');
 
-      // Update contact text with mixed content
-      const contactTexts = document.querySelectorAll('.contact-text');
-      if (contactTexts[0]) {
-        contactTexts[0].innerHTML = `<strong>${translations[lang].contact.cta1}</strong><br><span>${translations[lang].contact.desc1}</span>`;
+    function markCurrent(id) {
+      for (var i = 0; i < navLinks.length; i++) {
+        var on = navLinks[i].getAttribute('href') === '#' + id;
+        navLinks[i].classList.toggle('is-current', on);
+        if (on) navLinks[i].setAttribute('aria-current', 'true');
+        else navLinks[i].removeAttribute('aria-current');
       }
     }
 
-    // Add language selector event listeners
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        setLanguage(btn.dataset.lang);
-      });
-    });
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      setLanguage(currentLang);
-    });
-
-    // Scroll-triggered fade-in
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(el => {
-        if (el.isIntersecting) {
-          el.target.classList.add('visible');
-          // stagger children
-          el.target.querySelectorAll(':scope > *').forEach((child, i) => {
-            child.style.setProperty('--i', i);
-          });
+    if ('IntersectionObserver' in window && sections.length) {
+      var visible = {};
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          visible[entry.target.id] = entry.isIntersecting;
+        });
+        for (var i = 0; i < sections.length; i++) {
+          if (visible[sections[i].id]) { markCurrent(sections[i].id); return; }
         }
-      });
-    }, { threshold: 0.1 });
+      }, { rootMargin: '-45% 0px -50% 0px' });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Active nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.style.color = link.getAttribute('href') === '#' + entry.target.id
-              ? 'var(--text-primary)'
-              : '';
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55%' });
-
-    sections.forEach(s => navObserver.observe(s));
+      for (var s = 0; s < sections.length; s++) observer.observe(sections[s]);
+    }
+  })();
   </script>
 </body>
 </html>
