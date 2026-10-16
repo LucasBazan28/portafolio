@@ -1,0 +1,1117 @@
+{
+ "url": "index.html",
+ "at": "2026-10-16T15:58:40.762Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.24,
+    0.6,
+    0.37,
+    0.76,
+    0.57,
+    0.42
+   ],
+   "motion": {
+    "elements": 30,
+    "css": 6,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4737,
+     "screens": 5.3,
+     "words": 594,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 24,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 17,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "centro-distribuciones.jpg",
+      "proyecto-agro-web.jpg",
+      "proyecto-agro-mobile.jpg",
+      "icat.jpg",
+      "destructores-ara-almirante-brown-y-ara-sarandi.j",
+      "radio-am-750.jpg",
+      "lu2.jpg",
+      "pagina-12.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "chars": 19,
+     "lines": 1,
+     "size": 76.8,
+     "vw": 5.3,
+     "font": "Albert Sans",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.48,
+     "top": 170,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "lines": 1,
+     "size": 76.8,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Hi, I'm Lucas Bazan",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 76.8,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.48,
+      "top": 170,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Work I'm proud of",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 37.6,
+      "vw": 2.6,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 815,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "In the news",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 37.6,
+      "vw": 2.6,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 2229,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Software that holds up.",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 4202,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "Arial",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      22,
+      38,
+      40,
+      77
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 81,
+     "max": {
+      "size": 76.8,
+      "vw": 5.3,
+      "font": "Albert Sans",
+      "text": "Hi, I'm Lucas Bazan"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f7f9",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.2,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 4053,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#384250",
+       "share": 0.74
+      },
+      {
+       "color": "#0a0d12",
+       "share": 0.13
+      },
+      {
+       "color": "#525e6e",
+       "share": 0.07
+      },
+      {
+       "color": "#186375",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#eaedf2",
+      "hsl": {
+       "h": 217,
+       "s": 0.24,
+       "l": 0.93
+      },
+      "fg": "#0a0d12"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 4,
+     "radius": 14,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Message me on WhatsApp",
+      "See projects",
+      "Download CV (PDF)"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 6,
+     "roundedBoxes": 30,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 17,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 12,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2389
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 60,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.49,
+    0.56,
+    0.47,
+    0.74,
+    0.73,
+    0.56
+   ],
+   "motion": {
+    "elements": 30,
+    "css": 6,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5925,
+     "screens": 5.8,
+     "words": 594,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 24,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 17,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "centro-distribuciones.jpg",
+      "proyecto-agro-web.jpg",
+      "proyecto-agro-mobile.jpg",
+      "icat.jpg",
+      "destructores-ara-almirante-brown-y-ara-sarandi.j",
+      "radio-am-750.jpg",
+      "lu2.jpg",
+      "pagina-12.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "chars": 19,
+     "lines": 1,
+     "size": 49.9,
+     "vw": 6.5,
+     "font": "Albert Sans",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.59,
+     "top": 144,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "lines": 1,
+     "size": 49.9,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Hi, I'm Lucas Bazan",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 49.9,
+      "vw": 6.5,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.59,
+      "top": 144,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Work I'm proud of",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 3.9,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 724,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "In the news",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 3.9,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2678,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Software that holds up.",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 29.2,
+      "vw": 3.8,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 5185,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "Arial",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      22,
+      29,
+      30,
+      50
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 81,
+     "max": {
+      "size": 49.9,
+      "vw": 6.5,
+      "font": "Albert Sans",
+      "text": "Hi, I'm Lucas Bazan"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f7f9",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.2,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 5138,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#384250",
+       "share": 0.74
+      },
+      {
+       "color": "#0a0d12",
+       "share": 0.13
+      },
+      {
+       "color": "#525e6e",
+       "share": 0.07
+      },
+      {
+       "color": "#186375",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#eaedf2",
+      "hsl": {
+       "h": 217,
+       "s": 0.24,
+       "l": 0.93
+      },
+      "fg": "#0a0d12"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 4,
+     "radius": 14,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Message me on WhatsApp",
+      "See projects",
+      "Download CV (PDF)"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 6,
+     "roundedBoxes": 30,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 17,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 12,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2828
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 60,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.64,
+    0.69,
+    0.84,
+    0.71,
+    0.61,
+    0.86,
+    0.86,
+    0.86,
+    0.86,
+    0.87,
+    0.74,
+    0.71
+   ],
+   "motion": {
+    "elements": 30,
+    "css": 6,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 9481,
+     "screens": 11.2,
+     "words": 594,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 24,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 17,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "centro-distribuciones.jpg",
+      "proyecto-agro-web.jpg",
+      "proyecto-agro-mobile.jpg",
+      "icat.jpg",
+      "destructores-ara-almirante-brown-y-ara-sarandi.j",
+      "radio-am-750.jpg",
+      "lu2.jpg",
+      "pagina-12.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "chars": 19,
+     "lines": 2,
+     "size": 44.8,
+     "vw": 11.5,
+     "font": "Albert Sans",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 1.04,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 166,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Hi, I'm Lucas Bazan",
+     "words": 4,
+     "lines": 2,
+     "size": 44.8,
+     "font": "Albert Sans"
+    },
+    "headings": [
+     {
+      "text": "Hi, I'm Lucas Bazan",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 44.8,
+      "vw": 11.5,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 1.04,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 166,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Work I'm proud of",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 977,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "In the news",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 29.6,
+      "vw": 7.6,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.035,
+      "leading": 1.12,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3907,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Software that holds up.",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 7.4,
+      "font": "Albert Sans",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.71,
+      "top": 8649,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Albert Sans",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "Arial",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      29,
+      30,
+      45
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Albert Sans",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 44.8,
+      "vw": 11.5,
+      "font": "Albert Sans",
+      "text": "Hi, I'm Lucas Bazan"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0.04,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f7f9",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.2,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 4115,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#eaedf2",
+       "top": 4127,
+       "hsl": {
+        "h": 217,
+        "s": 0.24,
+        "l": 0.93
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#384250",
+       "share": 0.74
+      },
+      {
+       "color": "#0a0d12",
+       "share": 0.13
+      },
+      {
+       "color": "#525e6e",
+       "share": 0.07
+      },
+      {
+       "color": "#186375",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#eaedf2",
+      "hsl": {
+       "h": 217,
+       "s": 0.24,
+       "l": 0.93
+      },
+      "fg": "#0a0d12"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 4,
+     "radius": 14,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Message me on WhatsApp",
+      "See projects",
+      "Download CV (PDF)"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 6,
+     "roundedBoxes": 30,
+     "boxRadius": 28,
+     "squareMedia": 0,
+     "roundedMedia": 17,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 12,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 4115
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 126,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "albert sans"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "6 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (14, 15, 16, 17, 18, 20, 22, 38, 40, 77).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\desktop-page-01.jpg",
+    "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\desktop-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\mobile-page-01.jpg",
+    "C:\\Users\\lucas\\portafolio\\.taste-skill\\inspect\\mobile-page-02.jpg"
+   ]
+  }
+ ]
+}

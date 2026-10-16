@@ -1,0 +1,52 @@
+[
+ {
+  "file": "assets/gpm-presentation-resources-ground-radar-coverage.mp4",
+  "media": "video",
+  "poster": "assets/gpm-presentation-resources-ground-radar-coverage-poster.jpg",
+  "ref": "nasa:GSFC_20121221_GPM_m11165_Ground_Radar",
+  "title": "GPM Presentation Resources: Ground Radar Coverage",
+  "creator": "Ryan Fitzgibbons, Dalia B. Kirschbaum",
+  "creatorUrl": null,
+  "date": "2012-12-21",
+  "license": "public domain (NASA)",
+  "licenseCode": "pd",
+  "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "creditRequired": false,
+  "page": "https://images.nasa.gov/details/GSFC_20121221_GPM_m11165_Ground_Radar",
+  "via": "NASA Image and Video Library",
+  "video": "https://images-assets.nasa.gov/video/GSFC_20121221_GPM_m11165_Ground_Radar/GSFC_20121221_GPM_m11165_Ground_Radar~medium.mp4",
+  "width": 1280,
+  "height": 720,
+  "duration": 17.4,
+  "bytes": 3707825,
+  "credit": "\"GPM Presentation Resources: Ground Radar Coverage\" by Ryan Fitzgibbons, Dalia B. Kirschbaum, public domain (NASA), via NASA Image and Video Library",
+  "notes": [
+   "NASA footage is generally free of copyright in the US. Never use NASA logos or suggest NASA endorses the client; check the page for third-party material."
+  ],
+  "saved": "2026-10-15T21:38:07.766Z"
+ },
+ {
+  "file": "assets/destructores-ara-almirante-brown-y-ara-sarandi.jpg",
+  "media": "image",
+  "ref": "openverse:76e9fe60-8031-4e26-8bcf-ae5d2d087ca0",
+  "title": "Destructores ARA Almirante Brown y ARA Sarandi (34676514675)",
+  "creator": "Juan Kulichevsky from Argentina",
+  "creatorUrl": "https://www.flickr.com/people/10644906@N04",
+  "date": null,
+  "license": "CC BY-SA 2.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/w/index.php?curid=58927883",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Destructores_ARA_Almirante_Brown_y_ARA_Sarandi_%2834676514675%29.jpg/1920px-Destructores_ARA_Almirante_Brown_y_ARA_Sarandi_%2834676514675%29.jpg",
+  "width": 1920,
+  "height": 1440,
+  "bytes": 568732,
+  "credit": "\"Destructores ARA Almirante Brown y ARA Sarandi (34676514675)\" by Juan Kulichevsky from Argentina, CC BY-SA 2.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-10-16T15:49:25.055Z"
+ }
+]
