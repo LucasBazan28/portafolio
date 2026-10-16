@@ -1,6 +1,6 @@
 {
  "url": "index.html",
- "at": "2026-10-16T15:58:40.762Z",
+ "at": "2026-10-16T19:30:44.922Z",
  "allow": [],
  "viewports": [
   {
@@ -9,17 +9,17 @@
    "load": "load",
    "screens": 6,
    "filled": [
-    0.24,
-    0.6,
-    0.37,
-    0.76,
-    0.57,
+    0.21,
+    0.52,
+    0.41,
+    0.71,
+    0.52,
     0.42
    ],
    "motion": {
-    "elements": 30,
+    "elements": 31,
     "css": 6,
-    "transitions": 24,
+    "transitions": 25,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -30,13 +30,13 @@
      "h": 900
     },
     "page": {
-     "height": 4737,
-     "screens": 5.3,
-     "words": 594,
+     "height": 4702,
+     "screens": 5.2,
+     "words": 590,
      "img": 17,
      "video": 0,
      "canvas": 0,
-     "svg": 24,
+     "svg": 29,
      "sections": 4,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -61,9 +61,9 @@
      "emoji": []
     },
     "hero": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
-     "chars": 19,
+     "text": "Lucas Bazan",
+     "words": 2,
+     "chars": 11,
      "lines": 1,
      "size": 76.8,
      "vw": 5.3,
@@ -74,25 +74,25 @@
      "upper": false,
      "italic": false,
      "mono": false,
-     "align": "left",
-     "position": "left",
-     "widthRatio": 0.48,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.28,
      "top": 170,
      "tag": "h1",
      "kind": "heading"
     },
     "h1": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
+     "text": "Lucas Bazan",
+     "words": 2,
      "lines": 1,
      "size": 76.8,
      "font": "Albert Sans"
     },
     "headings": [
      {
-      "text": "Hi, I'm Lucas Bazan",
-      "words": 4,
-      "chars": 19,
+      "text": "Lucas Bazan",
+      "words": 2,
+      "chars": 11,
       "lines": 1,
       "size": 76.8,
       "vw": 5.3,
@@ -103,9 +103,9 @@
       "upper": false,
       "italic": false,
       "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.48,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.28,
       "top": 170,
       "tag": "h1",
       "kind": "heading"
@@ -127,7 +127,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.78,
-      "top": 815,
+      "top": 779,
       "tag": "h2",
       "kind": "heading"
      },
@@ -148,7 +148,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.78,
-      "top": 2229,
+      "top": 2194,
       "tag": "h2",
       "kind": "heading"
      },
@@ -169,7 +169,7 @@
       "align": "left",
       "position": "left",
       "widthRatio": 0.37,
-      "top": 4202,
+      "top": 4166,
       "tag": "h2",
       "kind": "heading"
      }
@@ -179,7 +179,7 @@
      "maxLines": 1,
      "over2Lines": 0,
      "statements": 0,
-     "centered": 0,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -205,11 +205,12 @@
       18,
       20,
       22,
+      23,
       38,
       40,
       77
      ],
-     "sizeCount": 10,
+     "sizeCount": 11,
      "notLoaded": [],
      "body": {
       "font": "Albert Sans",
@@ -224,7 +225,7 @@
       "size": 76.8,
       "vw": 5.3,
       "font": "Albert Sans",
-      "text": "Hi, I'm Lucas Bazan"
+      "text": "Lucas Bazan"
      },
      "monoShare": 0,
      "monoProseShare": 0,
@@ -234,7 +235,7 @@
      "microLabelShare": 0,
      "microSamples": [],
      "upperShare": 0.01,
-     "centerShare": 0.04,
+     "centerShare": 0.16,
      "smallText": 0
     },
     "eyebrows": [],
@@ -250,7 +251,7 @@
      "sectionBgs": [
       {
        "color": "#ffffff",
-       "top": 4053,
+       "top": 4017,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -261,7 +262,7 @@
      "textColors": [
       {
        "color": "#384250",
-       "share": 0.74
+       "share": 0.75
       },
       {
        "color": "#0a0d12",
@@ -272,12 +273,12 @@
        "share": 0.07
       },
       {
-       "color": "#186375",
+       "color": "#ffffff",
        "share": 0.03
       },
       {
-       "color": "#ffffff",
-       "share": 0.03
+       "color": "#186375",
+       "share": 0.02
       }
      ],
      "button": {
@@ -312,7 +313,7 @@
      "shadowOverlay": 0,
      "shadowSamples": [],
      "gradients": 0,
-     "scrims": 0,
+     "scrims": 1,
      "gradientSamples": [],
      "gradientText": 0,
      "hairlines": 0,
@@ -331,7 +332,7 @@
        "count": 12,
        "iconTopped": false,
        "rounded": true,
-       "top": 2389
+       "top": 2353
       }
      ]
     },
@@ -355,17 +356,17 @@
    "load": "load",
    "screens": 6,
    "filled": [
-    0.49,
+    0.36,
+    0.67,
+    0.46,
+    0.91,
     0.56,
-    0.47,
-    0.74,
-    0.73,
     0.56
    ],
    "motion": {
-    "elements": 30,
+    "elements": 31,
     "css": 6,
-    "transitions": 24,
+    "transitions": 25,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -376,13 +377,13 @@
      "h": 1024
     },
     "page": {
-     "height": 5925,
+     "height": 5893,
      "screens": 5.8,
-     "words": 594,
+     "words": 590,
      "img": 17,
      "video": 0,
      "canvas": 0,
-     "svg": 24,
+     "svg": 29,
      "sections": 4,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -407,9 +408,9 @@
      "emoji": []
     },
     "hero": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
-     "chars": 19,
+     "text": "Lucas Bazan",
+     "words": 2,
+     "chars": 11,
      "lines": 1,
      "size": 49.9,
      "vw": 6.5,
@@ -420,25 +421,25 @@
      "upper": false,
      "italic": false,
      "mono": false,
-     "align": "left",
-     "position": "left",
-     "widthRatio": 0.59,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.34,
      "top": 144,
      "tag": "h1",
      "kind": "heading"
     },
     "h1": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
+     "text": "Lucas Bazan",
+     "words": 2,
      "lines": 1,
      "size": 49.9,
      "font": "Albert Sans"
     },
     "headings": [
      {
-      "text": "Hi, I'm Lucas Bazan",
-      "words": 4,
-      "chars": 19,
+      "text": "Lucas Bazan",
+      "words": 2,
+      "chars": 11,
       "lines": 1,
       "size": 49.9,
       "vw": 6.5,
@@ -449,9 +450,9 @@
       "upper": false,
       "italic": false,
       "mono": false,
-      "align": "left",
-      "position": "left",
-      "widthRatio": 0.59,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.34,
       "top": 144,
       "tag": "h1",
       "kind": "heading"
@@ -473,7 +474,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 724,
+      "top": 693,
       "tag": "h2",
       "kind": "heading"
      },
@@ -494,7 +495,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.92,
-      "top": 2678,
+      "top": 2646,
       "tag": "h2",
       "kind": "heading"
      },
@@ -515,7 +516,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.8,
-      "top": 5185,
+      "top": 5153,
       "tag": "h2",
       "kind": "heading"
      }
@@ -525,7 +526,7 @@
      "maxLines": 1,
      "over2Lines": 0,
      "statements": 0,
-     "centered": 0,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -549,13 +550,14 @@
       16,
       17,
       18,
+      19,
       20,
       22,
       29,
       30,
       50
      ],
-     "sizeCount": 10,
+     "sizeCount": 11,
      "notLoaded": [],
      "body": {
       "font": "Albert Sans",
@@ -570,7 +572,7 @@
       "size": 49.9,
       "vw": 6.5,
       "font": "Albert Sans",
-      "text": "Hi, I'm Lucas Bazan"
+      "text": "Lucas Bazan"
      },
      "monoShare": 0,
      "monoProseShare": 0,
@@ -580,7 +582,7 @@
      "microLabelShare": 0,
      "microSamples": [],
      "upperShare": 0.01,
-     "centerShare": 0.04,
+     "centerShare": 0.16,
      "smallText": 0
     },
     "eyebrows": [],
@@ -596,7 +598,7 @@
      "sectionBgs": [
       {
        "color": "#ffffff",
-       "top": 5138,
+       "top": 5107,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -607,7 +609,7 @@
      "textColors": [
       {
        "color": "#384250",
-       "share": 0.74
+       "share": 0.75
       },
       {
        "color": "#0a0d12",
@@ -618,12 +620,12 @@
        "share": 0.07
       },
       {
-       "color": "#186375",
+       "color": "#ffffff",
        "share": 0.03
       },
       {
-       "color": "#ffffff",
-       "share": 0.03
+       "color": "#186375",
+       "share": 0.02
       }
      ],
      "button": {
@@ -658,7 +660,7 @@
      "shadowOverlay": 0,
      "shadowSamples": [],
      "gradients": 0,
-     "scrims": 0,
+     "scrims": 1,
      "gradientSamples": [],
      "gradientText": 0,
      "hairlines": 0,
@@ -677,11 +679,20 @@
        "count": 12,
        "iconTopped": false,
        "rounded": true,
-       "top": 2828
+       "top": 2797
       }
      ]
     },
-    "heroMedia": [],
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.09
+     },
+     {
+      "type": "img",
+      "ratio": 0.09
+     }
+    ],
     "nav": {
      "links": 5,
      "fixed": true,
@@ -702,22 +713,22 @@
    "screens": 12,
    "filled": [
     0.64,
-    0.69,
-    0.84,
-    0.71,
-    0.61,
+    0.77,
+    0.83,
+    0.8,
+    0.63,
     0.86,
     0.86,
     0.86,
     0.86,
-    0.87,
-    0.74,
+    0.86,
+    0.8,
     0.71
    ],
    "motion": {
-    "elements": 30,
+    "elements": 31,
     "css": 6,
-    "transitions": 24,
+    "transitions": 25,
     "scripted": 0,
     "videos": 0,
     "playingVideos": 0
@@ -728,13 +739,13 @@
      "h": 844
     },
     "page": {
-     "height": 9481,
+     "height": 9430,
      "screens": 11.2,
-     "words": 594,
+     "words": 591,
      "img": 17,
      "video": 0,
      "canvas": 0,
-     "svg": 24,
+     "svg": 29,
      "sections": 4,
      "horizontalOverflow": 0,
      "overflowCulprits": [],
@@ -759,10 +770,10 @@
      "emoji": []
     },
     "hero": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
-     "chars": 19,
-     "lines": 2,
+     "text": "Lucas Bazan",
+     "words": 2,
+     "chars": 11,
+     "lines": 1,
      "size": 44.8,
      "vw": 11.5,
      "font": "Albert Sans",
@@ -772,26 +783,26 @@
      "upper": false,
      "italic": false,
      "mono": false,
-     "align": "left",
+     "align": "center",
      "position": "center",
-     "widthRatio": 0.9,
+     "widthRatio": 0.61,
      "top": 166,
      "tag": "h1",
      "kind": "heading"
     },
     "h1": {
-     "text": "Hi, I'm Lucas Bazan",
-     "words": 4,
-     "lines": 2,
+     "text": "Lucas Bazan",
+     "words": 2,
+     "lines": 1,
      "size": 44.8,
      "font": "Albert Sans"
     },
     "headings": [
      {
-      "text": "Hi, I'm Lucas Bazan",
-      "words": 4,
-      "chars": 19,
-      "lines": 2,
+      "text": "Lucas Bazan",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
       "size": 44.8,
       "vw": 11.5,
       "font": "Albert Sans",
@@ -801,9 +812,9 @@
       "upper": false,
       "italic": false,
       "mono": false,
-      "align": "left",
+      "align": "center",
       "position": "center",
-      "widthRatio": 0.9,
+      "widthRatio": 0.61,
       "top": 166,
       "tag": "h1",
       "kind": "heading"
@@ -825,7 +836,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.9,
-      "top": 977,
+      "top": 926,
       "tag": "h2",
       "kind": "heading"
      },
@@ -846,7 +857,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.9,
-      "top": 3907,
+      "top": 3855,
       "tag": "h2",
       "kind": "heading"
      },
@@ -867,7 +878,7 @@
       "align": "left",
       "position": "center",
       "widthRatio": 0.71,
-      "top": 8649,
+      "top": 8598,
       "tag": "h2",
       "kind": "heading"
      }
@@ -877,7 +888,7 @@
      "maxLines": 2,
      "over2Lines": 0,
      "statements": 0,
-     "centered": 0,
+     "centered": 1,
      "medianWords": 4,
      "mixedFontHeadings": 0
     },
@@ -900,13 +911,14 @@
       16,
       17,
       18,
+      19,
       20,
       22,
       29,
       30,
       45
      ],
-     "sizeCount": 9,
+     "sizeCount": 10,
      "notLoaded": [],
      "body": {
       "font": "Albert Sans",
@@ -921,7 +933,7 @@
       "size": 44.8,
       "vw": 11.5,
       "font": "Albert Sans",
-      "text": "Hi, I'm Lucas Bazan"
+      "text": "Lucas Bazan"
      },
      "monoShare": 0,
      "monoProseShare": 0,
@@ -931,7 +943,7 @@
      "microLabelShare": 0,
      "microSamples": [],
      "upperShare": 0.01,
-     "centerShare": 0.04,
+     "centerShare": 0.17,
      "smallText": 0
     },
     "eyebrows": [],
@@ -947,7 +959,7 @@
      "sectionBgs": [
       {
        "color": "#ffffff",
-       "top": 4115,
+       "top": 4064,
        "hsl": {
         "h": 0,
         "s": 0,
@@ -956,7 +968,7 @@
       },
       {
        "color": "#eaedf2",
-       "top": 4127,
+       "top": 4076,
        "hsl": {
         "h": 217,
         "s": 0.24,
@@ -967,7 +979,7 @@
      "textColors": [
       {
        "color": "#384250",
-       "share": 0.74
+       "share": 0.75
       },
       {
        "color": "#0a0d12",
@@ -978,11 +990,11 @@
        "share": 0.07
       },
       {
-       "color": "#186375",
+       "color": "#ffffff",
        "share": 0.03
       },
       {
-       "color": "#ffffff",
+       "color": "#186375",
        "share": 0.03
       }
      ],
@@ -1018,7 +1030,7 @@
      "shadowOverlay": 0,
      "shadowSamples": [],
      "gradients": 0,
-     "scrims": 0,
+     "scrims": 1,
      "gradientSamples": [],
      "gradientText": 0,
      "hairlines": 0,
@@ -1037,7 +1049,7 @@
        "count": 12,
        "iconTopped": false,
        "rounded": true,
-       "top": 4115
+       "top": 4064
       }
      ]
     },
@@ -1072,10 +1084,11 @@
    "level": "WARN",
    "id": "size-count",
    "width": 1440,
-   "message": "10 different font sizes (14, 15, 16, 17, 18, 20, 22, 38, 40, 77).",
+   "message": "11 different font sizes (14, 15, 16, 17, 18, 20, 22, 23, 38, 40, 77).",
    "fix": "A page needs about five: display, heading, lead, body, small.",
    "alsoAt": [
-    768
+    768,
+    390
    ]
   },
   {
