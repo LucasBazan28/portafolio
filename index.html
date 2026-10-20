@@ -465,7 +465,7 @@
     .notched-cover {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 28px;
       background: var(--surface-chip);
@@ -484,27 +484,18 @@
       transform: scale(1.04);
     }
 
-    .notched-badge {
-      pointer-events: none;
-      position: absolute;
-      inset-inline: 0;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      padding-top: 16px;
-      z-index: 2;
-    }
-
     .notched-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 10px;
+      padding: 3px 11px;
       border-radius: 9999px;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 4px 12px;
+      background: var(--surface-chip);
+      color: var(--signal);
       font-size: var(--t-small);
       font-weight: 600;
-      color: #ffffff;
-      backdrop-filter: blur(8px); /* taste-skill-ignore */
-      -webkit-backdrop-filter: blur(8px); /* taste-skill-ignore */
+      letter-spacing: -0.01em;
     }
 
     /* Notch geometry: seamless continuous SVG curve biting into the cover */
@@ -955,41 +946,11 @@
 
         <div class="notched-grid">
 
-          <!-- 0. VYCO -->
-          <a href="https://vyco.app" target="_blank" rel="noopener" class="notched-card reveal">
-            <div class="notched-cover-wrap">
-              <div class="notched-cover">
-                <img src="assets/images/vyco.jpg" alt="VYCO micro-novel app running on two iPhones" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill">iOS &amp; Android</span>
-                </div>
-              </div>
-              <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
-                <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
-              </svg>
-              <span aria-hidden="true" class="notched-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </span>
-            </div>
-            <h3 class="notched-title">VYCO</h3>
-            <p class="notched-desc" data-i18n="projects.p6">
-              App for micro-novels and micro-fiction told in one-minute video episodes. I published it on the App Store and Google Play and integrated Google AdMob.
-            </p>
-            <ul class="notched-tags">
-              <li>iOS</li>
-              <li>Android</li>
-              <li>Google AdMob</li>
-            </ul>
-          </a>
-
-          <!-- 1. We Latam, AI Podcast -->
+          <!-- 0. We Latam, AI Podcast -->
           <a href="https://we-latinoamerica.com" target="_blank" rel="noopener" class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/we-Latam-Podcast.jpg" alt="We Latam AI Podcast Generator interface with prompt parameters and speaker settings" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill">OpenAI &amp; ElevenLabs</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -999,6 +960,7 @@
               </span>
             </div>
             <h3 class="notched-title">We Latam, AI Podcast</h3>
+            <span class="notched-badge-pill">OpenAI &amp; ElevenLabs</span>
             <p class="notched-desc" data-i18n="projects.p7">
               Automated podcast generator built for We Latam. Connects to the OpenAI API to draft scripts based on configurable parameters (topic, length, speaker count, and language), outputting the exact JSON schema required by ElevenLabs v4 API to assign distinct voices and render the full podcast audio.
             </p>
@@ -1010,14 +972,36 @@
             </ul>
           </a>
 
-          <!-- 1. Centro Distribuciones -->
+          <!-- 1. VYCO -->
+          <a href="https://vyco.app" target="_blank" rel="noopener" class="notched-card reveal">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/images/vyco.jpg" alt="VYCO micro-novel app running on two iPhones" loading="lazy" decoding="async" class="notched-img" />
+              </div>
+              <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
+                <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
+              </svg>
+              <span aria-hidden="true" class="notched-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </span>
+            </div>
+            <h3 class="notched-title">VYCO</h3>
+            <span class="notched-badge-pill">iOS &amp; Android</span>
+            <p class="notched-desc" data-i18n="projects.p6">
+              App for micro-novels and micro-fiction told in one-minute video episodes. I published it on the App Store and Google Play and integrated Google AdMob.
+            </p>
+            <ul class="notched-tags">
+              <li>iOS</li>
+              <li>Android</li>
+              <li>Google AdMob</li>
+            </ul>
+          </a>
+
+          <!-- 2. Centro Distribuciones -->
           <a href="https://centrodistribuciones.ar" target="_blank" rel="noopener" class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/centro-distribuciones.jpg" alt="Centro Distribuciones e-commerce storefront" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill">Web app</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -1027,6 +1011,7 @@
               </span>
             </div>
             <h3 class="notched-title">Centro Distribuciones</h3>
+            <span class="notched-badge-pill">Web app</span>
             <p class="notched-desc" data-i18n="projects.p4">
               E-commerce site for a distribution company. Customers browse the catalog, fill a cart and place orders. The owner manages stock and orders from an admin dashboard. Optimized for SEO.
             </p>
@@ -1038,14 +1023,11 @@
             </ul>
           </a>
 
-          <!-- 2. Proyecto Agro, web -->
+          <!-- 3. Proyecto Agro, web -->
           <a href="https://proyecto-agro-web.vercel.app" target="_blank" rel="noopener" class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/proyecto-agro-web.jpg" alt="Proyecto Agro herd telemetry dashboard" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill">Web platform</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -1055,6 +1037,7 @@
               </span>
             </div>
             <h3 class="notched-title">Proyecto Agro, web</h3>
+            <span class="notched-badge-pill">Web platform</span>
             <p class="notched-desc" data-i18n="projects.p2">
               Web app for farm management. It shows the data the mobile app collects as charts and comparison tables, so a farmer can see how a herd changes between measurements.
             </p>
@@ -1065,14 +1048,11 @@
             </ul>
           </a>
 
-          <!-- 3. Proyecto Agro, mobile -->
+          <!-- 4. Proyecto Agro, mobile -->
           <div class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/proyecto-agro-mobile.jpg" alt="Proyecto Agro mobile app with on-device AI cattle scoring" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill" data-i18n="projects.m3">No public build yet</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -1082,6 +1062,7 @@
               </span>
             </div>
             <h3 class="notched-title">Proyecto Agro, mobile</h3>
+            <span class="notched-badge-pill" data-i18n="projects.m3">No public build yet</span>
             <p class="notched-desc" data-i18n="projects.p3">
               Mobile app that estimates a cow's Body Condition Score from a photo. The farmer takes the picture, a machine learning model returns the score, and the history feeds the web app.
             </p>
@@ -1092,14 +1073,11 @@
             </ul>
           </div>
 
-          <!-- 4. ICAT, Foton -->
+          <!-- 5. ICAT, Foton -->
           <a href="https://icat-gamma.vercel.app" target="_blank" rel="noopener" class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/icat.jpg" alt="ICAT AI screenplay analysis interface" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill">AI analysis</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -1109,6 +1087,7 @@
               </span>
             </div>
             <h3 class="notched-title">ICAT, Foton</h3>
+            <span class="notched-badge-pill">AI analysis</span>
             <p class="notched-desc" data-i18n="projects.p1">
               Insight Content Analysis Tool. Web app that analyzes scripts with AI. The owner took the database down, so the demo runs on mocked data.
             </p>
@@ -1120,14 +1099,11 @@
             </ul>
           </a>
 
-          <!-- 5. Radar console decoders - Armada Argentina (Warship & Naval Radar Experience) -->
+          <!-- 6. Radar console decoders - Armada Argentina (Warship & Naval Radar Experience) -->
           <a href="https://linkedin.com/in/lucas-bazan" target="_blank" rel="noopener" class="notched-card reveal">
             <div class="notched-cover-wrap">
               <div class="notched-cover">
                 <img src="assets/images/armada-radar-logo.jpg" alt="Argentine Navy emblem over a radar screen" loading="lazy" decoding="async" class="notched-img" />
-                <div class="notched-badge">
-                  <span class="notched-badge-pill" data-i18n="projects.m5">Internship, Argentine Navy</span>
-                </div>
               </div>
               <svg viewBox="0 0 108 108" class="notched-cut-svg" aria-hidden="true">
                 <path d="M 0,108 C 16,108 28,92 28,76 A 48,48 0 0,1 76,28 C 92,28 108,16 108,0 L 108,108 Z" class="notched-cut-path" />
@@ -1137,6 +1113,7 @@
               </span>
             </div>
             <h3 class="notched-title">Radar console decoders</h3>
+            <span class="notched-badge-pill" data-i18n="projects.m5">Internship, Argentine Navy</span>
             <p class="notched-desc" data-i18n="projects.p5">
               Design and implementation of EUROCONTROL ASTERIX decoders in C++ and Qt for a radar console system within the Operational Analysis, Weapons and Electronic Warfare Service (SIAG).
             </p>
