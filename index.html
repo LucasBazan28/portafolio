@@ -738,6 +738,291 @@
       font-weight: 500;
     }
 
+    /* Quote Section: Cotizá tu sistema */
+    .quote-container {
+      background: var(--surface-raised);
+      border-radius: var(--radius-card);
+      padding: clamp(32px, 5vw, 64px);
+    }
+
+    .quote-form {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .quote-hp {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .quote-group {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .quote-legend {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--content);
+      margin-bottom: 16px;
+    }
+
+    .quote-chips-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quote-chip {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .quote-check-input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    [data-ui] .quote-chip-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      background: var(--surface-chip);
+      color: var(--content-2);
+      font-size: var(--t-small);
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    [data-ui] .quote-chip:hover .quote-chip-box {
+      background: var(--surface-hover);
+      color: var(--content);
+    }
+
+    [data-ui] .quote-check-input:focus-visible + .quote-chip-box {
+      outline: 2px solid var(--signal);
+      outline-offset: 2px;
+    }
+
+    [data-ui] .quote-check-input:checked + .quote-chip-box {
+      background: var(--surface);
+      color: var(--content);
+      border-color: var(--signal);
+      font-weight: 600;
+    }
+
+    .quote-chip-check {
+      width: 14px;
+      height: 14px;
+      opacity: 0;
+      stroke: var(--signal);
+      transform: scale(0.6);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    [data-ui] .quote-check-input:checked + .quote-chip-box .quote-chip-check {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .quote-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 860px) {
+      .quote-contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .quote-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quote-field-full {
+      width: 100%;
+    }
+
+    .quote-label {
+      font-size: var(--t-small);
+      font-weight: 600;
+      color: var(--content);
+      letter-spacing: -0.01em;
+    }
+
+    .quote-label .req {
+      color: var(--signal);
+    }
+
+    [data-ui] .quote-input,
+    [data-ui] .quote-textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: var(--t-body);
+      color: var(--content);
+      background: var(--surface);
+      border: 1px solid color-mix(in srgb, var(--content) 12%, transparent);
+      border-radius: var(--radius-ctrl);
+      padding: 12px 16px;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .quote-textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.55;
+    }
+
+    .quote-input:hover,
+    .quote-textarea:hover {
+      background: var(--surface-hover);
+    }
+
+    .quote-input:focus,
+    .quote-textarea:focus {
+      outline: none;
+      border-color: var(--signal);
+      background: var(--surface);
+    }
+
+    .quote-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .quote-submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-ctrl);
+      background: var(--signal);
+      color: var(--signal-ink);
+      font-family: var(--font-body);
+      font-size: var(--t-body);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+    }
+
+    .quote-submit-btn:hover {
+      background: var(--signal-hover);
+    }
+
+    .quote-submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    .quote-submit-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .quote-submit-btn .btn-spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      animation: quoteSpin 0.7s linear infinite;
+    }
+
+    .quote-submit-btn.is-loading .btn-spinner {
+      display: inline-block;
+    }
+
+    @keyframes quoteSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .quote-feedback {
+      font-size: var(--t-small);
+      line-height: 1.5;
+      border-radius: var(--radius-chip);
+      padding: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .quote-feedback.is-success {
+      color: #059669;
+      font-weight: 600;
+      padding: 12px 18px;
+      background: color-mix(in srgb, #059669 10%, var(--surface));
+      border-radius: var(--radius-chip);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .quote-feedback.is-success {
+        color: #34d399;
+        background: color-mix(in srgb, #34d399 15%, var(--surface-chip));
+      }
+    }
+
+    .quote-feedback.is-error {
+      color: #dc2626;
+      font-weight: 500;
+      padding: 14px 18px;
+      background: color-mix(in srgb, #dc2626 10%, var(--surface));
+      border-radius: var(--radius-chip);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .quote-feedback.is-error {
+        color: #f87171;
+        background: color-mix(in srgb, #f87171 15%, var(--surface-chip));
+      }
+    }
+
+    .quote-fallback-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .quote-fallback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-chip);
+      background: var(--surface-chip);
+      color: var(--content);
+      font-size: var(--t-small);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+    }
+
+    .quote-fallback-btn:hover {
+      background: var(--surface-hover);
+    }
+
     /* Contact Section: Clean Statement */
     .contact-container {
       background: var(--surface-raised);
@@ -891,6 +1176,7 @@
           <li><a href="#about"    data-i18n="nav.about">About</a></li>
           <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
           <li><a href="#press"    data-i18n="nav.press">Press</a></li>
+          <li><a href="#quote"    data-i18n="nav.quote">Quote</a></li>
           <li><a href="#contact"  data-i18n="nav.contact">Contact</a></li>
         </ul>
         <div class="lang" role="group" aria-label="Language">
@@ -921,9 +1207,9 @@
         </p>
 
         <div class="hero-cta">
-          <a href="https://wa.me/5491123298026" target="_blank" rel="noopener" class="btn btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span data-i18n="hero.cta1">Message me on WhatsApp</span>
+          <a href="#quote" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+            <span data-i18n="hero.cta1">Get a quote</span>
           </a>
           <a href="#projects" class="btn btn-secondary">
             <span data-i18n="hero.cta2">See projects</span>
@@ -1435,6 +1721,114 @@
       </div>
     </section>
 
+    <!-- Quote: Cotizá tu sistema -->
+    <section id="quote">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-heading" data-i18n="quote.heading">Cotizá tu sistema</h2>
+          <p class="section-sub" data-i18n="quote.sub">Seleccioná qué tipo de solución necesitás y contame sobre tu proyecto. Te respondo con una estimación clara de alcance y tiempos.</p>
+        </div>
+
+        <div class="quote-container reveal" data-ui>
+          <form id="quote-form" class="quote-form" novalidate>
+            <!-- Honeypot anti-spam field -->
+            <input type="text" name="_hp" class="quote-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <fieldset class="quote-group">
+              <legend class="quote-legend" data-i18n="quote.legend">¿Qué buscás?</legend>
+              <div class="quote-chips-grid">
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="Web (Landing)" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optWeb">Web (Landing)</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="E-commerce" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optEcommerce">E-commerce</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="Control Stock y Recursos (ERP)" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optErp">Control Stock y Recursos (ERP)</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="Control y Seguimiento Clientes (CRM)" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optCrm">Control y Seguimiento Clientes (CRM)</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="Automatizaciones y Flujos con IA" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optAi">Automatizaciones / Flujos con IA</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="App Móvil (iOS y Android)" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optMobile">App Móvil (iOS / Android)</span>
+                  </span>
+                </label>
+                <label class="quote-chip">
+                  <input type="checkbox" name="services" value="No estoy seguro" class="quote-check-input" />
+                  <span class="quote-chip-box">
+                    <svg class="quote-chip-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"></polyline></svg>
+                    <span data-i18n="quote.optUnsure">No estoy seguro</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="quote-field quote-field-full">
+              <label for="quote-details" class="quote-label" data-i18n="quote.detailsLabel">Detalles o comentarios de tu proyecto</label>
+              <textarea id="quote-details" name="details" class="quote-textarea" rows="4" data-i18n-ph="quote.detailsPlaceholder" placeholder="Describí brevemente tu idea, funciones principales o dudas que tengas..."></textarea>
+            </div>
+
+            <div class="quote-contact-grid">
+              <div class="quote-field">
+                <label for="quote-name" class="quote-label">
+                  <span data-i18n="quote.nameLabel">Tu nombre o empresa</span> <span class="req" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="quote-name" name="name" class="quote-input" required autocomplete="name" data-i18n-ph="quote.namePlaceholder" placeholder="Lucas Bazan" />
+              </div>
+
+              <div class="quote-field">
+                <label for="quote-email" class="quote-label">
+                  <span data-i18n="quote.emailLabel">Email de contacto</span> <span class="req" aria-hidden="true">*</span>
+                </label>
+                <input type="email" id="quote-email" name="email" class="quote-input" required autocomplete="email" data-i18n-ph="quote.emailPlaceholder" placeholder="nombre@correo.com" />
+              </div>
+
+              <div class="quote-field">
+                <label for="quote-phone" class="quote-label">
+                  <span data-i18n="quote.phoneLabel">Teléfono o WhatsApp</span>
+                </label>
+                <input type="tel" id="quote-phone" name="phone" class="quote-input" autocomplete="tel" data-i18n-ph="quote.phonePlaceholder" placeholder="+54 9 11 2329 8026" />
+              </div>
+            </div>
+
+            <div class="quote-footer">
+              <button type="submit" id="quote-submit-btn" class="quote-submit-btn">
+                <span class="btn-text" data-i18n="quote.submit">Enviar solicitud de cotización</span>
+                <svg class="btn-spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2 a 10 10 0 0 1 10 10" stroke-linecap="round"></path></svg>
+              </button>
+              <div id="quote-feedback" class="quote-feedback" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact">
       <div class="container">
@@ -1486,13 +1880,13 @@
     var translations = {
       en: {
         a11y: { skip: 'Skip to content' },
-        nav: { about: 'About', projects: 'Projects', press: 'Press', contact: 'Contact' },
+        nav: { about: 'About', projects: 'Projects', press: 'Press', quote: 'Quote', contact: 'Contact' },
         months: { apr2026: 'April 2026', may2026: 'May 2026', jun2026: 'June 2026' },
         hero: {
           greeting: "Lucas Bazan",
           lead: 'I build software for the people who have to use it every day.',
           bio: "I'm an Information Systems Engineer. I've worked on product development, data platforms and applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle body condition from a photo. I like the problems where the software has to hold up in the field, not just in a demo.",
-          cta1: 'Message me on WhatsApp',
+          cta1: 'Get a quote',
           cta2: 'See projects',
           cta3: 'Download CV (PDF)'
         },
@@ -1519,6 +1913,32 @@
           aboutLu2: 'Interview on LU2 Noticias with Néstor de la Iglesia. Ian and Lucas explain how they built the app and what it does for cattle farmers.',
           kind: { article: 'Article', radio: 'Radio', video: 'Video', tv: 'TV' }
         },
+        quote: {
+          heading: 'Quote your project',
+          sub: 'Select what you are looking for and tell me about your project. I will reply with a realistic estimate of scope and timeline.',
+          legend: 'What are you looking for?',
+          optWeb: 'Web (Landing)',
+          optEcommerce: 'E-commerce',
+          optErp: 'Inventory & Resources (ERP)',
+          optCrm: 'Customer Management (CRM)',
+          optAi: 'Automations / AI workflows',
+          optMobile: 'Mobile App (iOS / Android)',
+          optUnsure: 'Not sure / Need consultation',
+          detailsLabel: 'Project details or comments',
+          detailsPlaceholder: 'Briefly describe your goals, key features, or any questions you have...',
+          nameLabel: 'Your name or company',
+          namePlaceholder: 'Your name',
+          emailLabel: 'Contact email',
+          emailPlaceholder: 'you@example.com',
+          phoneLabel: 'Phone or WhatsApp',
+          phonePlaceholder: '+1 ...',
+          submit: 'Send quote request',
+          sending: 'Sending request...',
+          success: 'Quote request sent successfully! I will review it and get back to you soon.',
+          errorFallback: 'Could not send automatically. You can reach out directly via WhatsApp or Email:',
+          btnWhatsapp: 'Send via WhatsApp',
+          btnEmail: 'Send via Email'
+        },
         contact: {
           heading: 'Software that holds up.',
           body: 'I build web and mobile software that holds up under real use. Tell me what is breaking and I will tell you if I can fix it.',
@@ -1527,13 +1947,13 @@
       },
       es: {
         a11y: { skip: 'Saltar al contenido' },
-        nav: { about: 'Perfil', projects: 'Proyectos', press: 'Prensa', contact: 'Contacto' },
+        nav: { about: 'Perfil', projects: 'Proyectos', press: 'Prensa', quote: 'Cotizar', contact: 'Contacto' },
         months: { apr2026: 'Abril 2026', may2026: 'Mayo 2026', jun2026: 'Junio 2026' },
         hero: {
           greeting: 'Lucas Bazan',
           lead: 'Construyo software pensando en las personas que lo usan todos los días.',
           bio: 'Soy Ingeniero en Sistemas de Información. Trabajé en desarrollo de productos, plataformas de datos e IA aplicada, desde decodificadores para consolas de radar en la Armada Argentina hasta una app que estima la condición corporal del ganado con una foto. Me interesan los problemas donde el software tiene que funcionar en el campo y no solo en una demo.',
-          cta1: 'Escribime por WhatsApp',
+          cta1: 'Cotizar mi sistema',
           cta2: 'Ver proyectos',
           cta3: 'Descargar CV (PDF)'
         },
@@ -1559,6 +1979,32 @@
           about750: 'Entrevista en el programa de Víctor Hugo Morales en AM 750 sobre Proyecto Agro, sobre cómo la app estima la condición corporal del ganado a partir de una foto y cómo la construyó el equipo.',
           aboutLu2: 'Entrevista en LU2 Noticias con Néstor de la Iglesia. Ian y Lucas cuentan cómo construyeron la app y qué resuelve para los productores ganaderos.',
           kind: { article: 'Nota', radio: 'Radio', video: 'Video', tv: 'TV' }
+        },
+        quote: {
+          heading: 'Cotizá tu sistema',
+          sub: 'Seleccioná qué tipo de solución necesitás y contame sobre tu proyecto. Te respondo con una estimación clara de alcance y tiempos.',
+          legend: '¿Qué buscás?',
+          optWeb: 'Web (Landing)',
+          optEcommerce: 'E-commerce',
+          optErp: 'Control Stock y Recursos (ERP)',
+          optCrm: 'Control y Seguimiento Clientes (CRM)',
+          optAi: 'Automatizaciones / Flujos con IA',
+          optMobile: 'App Móvil (iOS / Android)',
+          optUnsure: 'No estoy seguro',
+          detailsLabel: 'Detalles o comentarios de tu proyecto',
+          detailsPlaceholder: 'Describí brevemente tu idea, funciones principales o dudas que tengas...',
+          nameLabel: 'Tu nombre o empresa',
+          namePlaceholder: 'Tu nombre o empresa',
+          emailLabel: 'Email de contacto',
+          emailPlaceholder: 'tu@correo.com',
+          phoneLabel: 'Teléfono o WhatsApp (opcional)',
+          phonePlaceholder: '+54 9 11 ...',
+          submit: 'Enviar solicitud de cotización',
+          sending: 'Enviando solicitud...',
+          success: '¡Solicitud de cotización enviada con éxito! La revisaré y te responderé a la brevedad.',
+          errorFallback: 'No se pudo enviar automáticamente. Podés enviarme los datos directamente por WhatsApp o Correo:',
+          btnWhatsapp: 'Enviar por WhatsApp',
+          btnEmail: 'Enviar por Correo'
         },
         contact: {
           heading: 'Software que resiste.',
@@ -1657,6 +2103,12 @@
         if (value !== null) nodes[i].textContent = value;
       }
 
+      var phNodes = document.querySelectorAll('[data-i18n-ph]');
+      for (var p = 0; p < phNodes.length; p++) {
+        var phVal = lookup(dict, phNodes[p].getAttribute('data-i18n-ph'));
+        if (phVal !== null) phNodes[p].setAttribute('placeholder', phVal);
+      }
+
       var buttons = document.querySelectorAll('.lang-btn');
       for (var j = 0; j < buttons.length; j++) {
         var on = buttons[j].getAttribute('data-lang') === lang;
@@ -1725,6 +2177,120 @@
       for (var k = 0; k < revealElements.length; k++) {
         revealElements[k].classList.add('in-view');
       }
+    }
+
+    // Quote Form Submission Handler
+    var quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        var submitBtn = document.getElementById('quote-submit-btn');
+        var feedback = document.getElementById('quote-feedback');
+        var btnText = submitBtn.querySelector('.btn-text');
+
+        feedback.className = 'quote-feedback';
+        feedback.innerHTML = '';
+
+        var formData = new FormData(quoteForm);
+        var hp = formData.get('_hp');
+        if (hp) return;
+
+        var name = (formData.get('name') || '').toString().trim();
+        var email = (formData.get('email') || '').toString().trim();
+        var phone = (formData.get('phone') || '').toString().trim();
+        var details = (formData.get('details') || '').toString().trim();
+
+        var services = [];
+        var checkboxes = quoteForm.querySelectorAll('input[name="services"]:checked');
+        for (var c = 0; c < checkboxes.length; c++) {
+          services.push(checkboxes[c].value);
+        }
+
+        if (!name || !email) {
+          feedback.className = 'quote-feedback is-error';
+          feedback.textContent = activeLang === 'es'
+            ? 'Por favor completá tu nombre y un email válido.'
+            : 'Please provide your name and a valid email.';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+        var originalBtnText = btnText.textContent;
+        var dict = translations[activeLang] || translations.es;
+        btnText.textContent = (dict.quote && dict.quote.sending) ? dict.quote.sending : 'Enviando...';
+
+        try {
+          var response = await fetch('/api/quote', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              phone: phone,
+              services: services,
+              details: details
+            })
+          });
+
+          var resData = await response.json().catch(function () { return {}; });
+
+          if (response.ok && resData.ok) {
+            feedback.className = 'quote-feedback is-success';
+            feedback.textContent = (dict.quote && dict.quote.success)
+              ? dict.quote.success
+              : '¡Solicitud de cotización enviada con éxito! La revisaré y te responderé a la brevedad.';
+            quoteForm.reset();
+          } else {
+            throw new Error(resData.error || 'Server error');
+          }
+        } catch (err) {
+          console.error('Submission error:', err);
+          feedback.className = 'quote-feedback is-error';
+
+          var waText = encodeURIComponent(
+            (activeLang === 'es' ? 'Hola Lucas! Te contacto por una cotización:\n' : 'Hi Lucas! Contacting you for a quote:\n') +
+            '- Nombre: ' + name + '\n' +
+            '- Email: ' + email + (phone ? ('\n- Tel: ' + phone) : '') + '\n' +
+            '- Servicios: ' + (services.length ? services.join(', ') : 'A definir') + '\n' +
+            (details ? ('- Detalles: ' + details) : '')
+          );
+          var waUrl = 'https://wa.me/5491123298026?text=' + waText;
+
+          var mailSubject = encodeURIComponent('Cotización: ' + name + (services.length ? (' - ' + services.join(', ')) : ''));
+          var mailBody = encodeURIComponent(
+            'Nombre: ' + name + '\n' +
+            'Email: ' + email + '\n' +
+            (phone ? ('Teléfono: ' + phone + '\n') : '') +
+            'Servicios: ' + (services.length ? services.join(', ') : 'No especificado') + '\n\n' +
+            'Detalles:\n' + (details || 'Sin comentarios adicionales')
+          );
+          var mailUrl = 'mailto:bazanlucas28@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
+
+          var errorMsg = (dict.quote && dict.quote.errorFallback)
+            ? dict.quote.errorFallback
+            : 'No se pudo enviar automáticamente. Podés enviarme los datos directamente por:';
+          var btnWaLabel = (dict.quote && dict.quote.btnWhatsapp) ? dict.quote.btnWhatsapp : 'WhatsApp';
+          var btnMailLabel = (dict.quote && dict.quote.btnEmail) ? dict.quote.btnEmail : 'Correo';
+
+          feedback.innerHTML = '<span>' + errorMsg + '</span>' +
+            '<div class="quote-fallback-links">' +
+              '<a href="' + waUrl + '" target="_blank" rel="noopener" class="quote-fallback-btn">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+                '<span>' + btnWaLabel + '</span>' +
+              '</a>' +
+              '<a href="' + mailUrl + '" class="quote-fallback-btn">' +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>' +
+                '<span>' + btnMailLabel + '</span>' +
+              '</a>' +
+            '</div>';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
+          btnText.textContent = originalBtnText;
+        }
+      });
     }
   })();
   </script>
