@@ -244,10 +244,106 @@
     }
 
     .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 600px) minmax(0, 380px);
+      justify-content: space-between;
+      align-items: center;
+      gap: clamp(40px, 7vw, 120px);
+    }
+
+    .hero-text {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hero-photo {
+      margin: 0;
+      animation: fadeUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-slides {
+      display: grid;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+      background: var(--surface-raised);
+    }
+
+    /* Crossfade with a slow, subtle zoom on the visible photo */
+    .hero-slides img {
+      grid-area: 1 / 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.2s ease, transform 7s ease-out;
+    }
+
+    .hero-slides img.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 10px;
+    }
+
+    .hero-dot {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+    }
+
+    .hero-dot::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--content-3);
+      opacity: 0.45;
+      transition: width 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+    }
+
+    .hero-dot[aria-current="true"]::before {
+      width: 22px;
+      opacity: 1;
+      background: var(--signal);
+    }
+
+    .hero-dot:focus-visible {
+      outline: 2px solid var(--signal);
+      outline-offset: 2px;
+      border-radius: 999px;
+    }
+
+    .hero-photo figcaption {
+      margin-top: 4px;
+      font-size: var(--t-small);
+      color: var(--content-3);
       text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-text { align-items: center; text-align: center; }
+      .hero-text .hero-name,
+      .hero-text .hero-lead,
+      .hero-text .hero-bio { text-align: center; }
+      .hero-text .hero-cta { justify-content: center; }
+      .hero-photo { max-width: 420px; margin-inline: auto; width: 100%; }
     }
 
     .hero-name-wrap {
@@ -278,7 +374,7 @@
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1.04;
-      text-align: center;
+      text-align: left;
       margin-bottom: 0;
       animation: fadeUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
     }
@@ -342,8 +438,8 @@
       font-weight: 400;
       line-height: 1.45;
       max-width: 44ch;
-      text-align: center;
-      margin-inline: auto;
+      text-align: left;
+      margin-inline: 0;
       margin-bottom: 24px;
       animation: fadeUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
     }
@@ -353,8 +449,8 @@
       max-width: 64ch;
       font-size: var(--t-body);
       line-height: 1.7;
-      text-align: center;
-      margin-inline: auto;
+      text-align: left;
+      margin-inline: 0;
       margin-bottom: 38px;
       animation: fadeUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
     }
@@ -363,8 +459,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      justify-content: center;
-      margin-inline: auto;
+      justify-content: flex-start;
       animation: fadeUpEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
     }
 
@@ -1192,6 +1287,7 @@
     <!-- Hero -->
     <section class="hero" id="about">
       <div class="container hero-inner">
+        <div class="hero-text">
         <div class="hero-name-wrap">
           <div class="hero-name-glow" aria-hidden="true"></div>
           <h1 class="hero-name" data-i18n="hero.greeting">Lucas Bazan</h1>
@@ -1219,6 +1315,21 @@
             <span data-i18n="hero.cta3">Download CV (PDF)</span>
           </a>
         </div>
+        </div>
+
+        <figure class="hero-photo">
+          <div class="hero-slides">
+            <img class="is-active" src="assets/images/panel_Revolucion-IA_Rotary.jpeg" width="1152" height="1536" fetchpriority="high" decoding="async"
+                 alt="Lucas Bazan speaking at the Revolución IA panel, Rotary Club de Buenos Aires">
+            <img src="assets/images/panel_Revolucion-IA_Rotary_2.jpeg" width="1152" height="1536" decoding="async"
+                 alt="Lucas Bazan on stage with the other Revolución IA panelists" aria-hidden="true">
+          </div>
+          <div class="hero-dots">
+            <button class="hero-dot" type="button" aria-label="Photo 1" aria-current="true"></button>
+            <button class="hero-dot" type="button" aria-label="Photo 2" aria-current="false"></button>
+          </div>
+          <figcaption data-i18n="hero.photoCaption">Revolución IA panel · Rotary Club de Buenos Aires, 2026</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -1888,7 +1999,8 @@
           bio: "I'm an Information Systems Engineer. I've worked on product development, data platforms and applied AI, from radar console decoders for the Argentine Navy to an app that scores cattle body condition from a photo. I like the problems where the software has to hold up in the field, not just in a demo.",
           cta1: 'Get a quote',
           cta2: 'See projects',
-          cta3: 'Download CV (PDF)'
+          cta3: 'Download CV (PDF)',
+          photoCaption: 'Revolución IA panel · Rotary Club de Buenos Aires, 2026'
         },
         projects: {
           heading: "Work I'm proud of",
@@ -1955,7 +2067,8 @@
           bio: 'Soy Ingeniero en Sistemas de Información. Trabajé en desarrollo de productos, plataformas de datos e IA aplicada, desde decodificadores para consolas de radar en la Armada Argentina hasta una app que estima la condición corporal del ganado con una foto. Me interesan los problemas donde el software tiene que funcionar en el campo y no solo en una demo.',
           cta1: 'Cotizar mi sistema',
           cta2: 'Ver proyectos',
-          cta3: 'Descargar CV (PDF)'
+          cta3: 'Descargar CV (PDF)',
+          photoCaption: 'Panel Revolución IA · Rotary Club de Buenos Aires, 2026'
         },
         projects: {
           heading: 'Trabajos de los que estoy orgulloso',
@@ -2037,6 +2150,46 @@
         'Full-Stack Development'
       ]
     };
+    // Hero photo slideshow: auto-advances, pauses on hover/focus and when the tab is hidden
+    (function () {
+      var slides = document.querySelectorAll('.hero-slides img');
+      var dots = document.querySelectorAll('.hero-dot');
+      var photo = document.querySelector('.hero-photo');
+      if (slides.length < 2) return;
+      var current = 0;
+      var timer = null;
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function show(index) {
+        current = (index + slides.length) % slides.length;
+        for (var i = 0; i < slides.length; i++) {
+          var on = i === current;
+          slides[i].classList.toggle('is-active', on);
+          slides[i].setAttribute('aria-hidden', on ? 'false' : 'true');
+          dots[i].setAttribute('aria-current', on ? 'true' : 'false');
+        }
+      }
+      function start() {
+        if (reduceMotion || timer) return;
+        timer = setInterval(function () { show(current + 1); }, 6000);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+
+      for (var d = 0; d < dots.length; d++) {
+        dots[d].addEventListener('click', (function (i) {
+          return function () { stop(); show(i); start(); };
+        })(d));
+      }
+      photo.addEventListener('mouseenter', stop);
+      photo.addEventListener('mouseleave', start);
+      photo.addEventListener('focusin', stop);
+      photo.addEventListener('focusout', start);
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop(); else start();
+      });
+      start();
+    })();
+
     var currentSwapIndex = 0;
     var swapEl = document.getElementById('hero-swap');
 
